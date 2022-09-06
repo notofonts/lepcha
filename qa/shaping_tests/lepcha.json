@@ -1,6 +1,12 @@
 {
     "tests": [
         {
+            "input": "ᰀ᰷ᰤᰬ◌᰷ᰬ",
+            "expectation": "uni1C00_1C24=0+840|uni1C37_uni1C2C=0@-510,0+0|uni25CC=4+510|uni1C37_uni1C2C=4@-257,0+0",
+            "note": "#1",
+            "only": "NotoSansLepcha-Regular.ttf"
+        },
+        {
             "input": "ᰀ᰷ᰬᰀ᰷ᰤᰬ",
             "expectation": "uni1C00=0+602|uni1C37_uni1C2C=0@-272,0+0|uni1C00_1C24=3+840|uni1C37_uni1C2C=3@-510,0+0",
             "note": "Nukta-e ligature; googlefonts/noto-fonts#2321",
