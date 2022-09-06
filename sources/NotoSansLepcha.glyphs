@@ -1,5 +1,8 @@
 {
 .appVersion = "3109";
+DisplayStrings = (
+"/uni1C2C"
+);
 classes = (
 {
 code = "uni1C25.alt uni1C24.alt uni1C26.alt uni1C2A.alt uni1C2B.alt uni1C25_1C24";
@@ -448,12 +451,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{305, 583}";
+name = bottom;
+position = "{305, 0}";
 },
 {
-name = Anchor12;
-position = "{305, 0}";
+name = top;
+position = "{305, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -524,12 +527,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{305, 583}";
+name = bottom_1;
+position = "{305, 0}";
 },
 {
-name = Anchor12_1;
-position = "{305, 0}";
+name = top_1;
+position = "{305, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -624,12 +627,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{327, 583}";
+name = bottom;
+position = "{327, 0}";
 },
 {
-name = Anchor12;
-position = "{327, 0}";
+name = top;
+position = "{327, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -684,12 +687,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{327, 583}";
+name = bottom_1;
+position = "{327, 0}";
 },
 {
-name = Anchor12_1;
-position = "{327, 0}";
+name = top_1;
+position = "{327, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -766,12 +769,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{327, 583}";
+name = bottom_1;
+position = "{327, 0}";
 },
 {
-name = Anchor12_1;
-position = "{327, 0}";
+name = top_1;
+position = "{327, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -871,12 +874,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{327, 583}";
+name = bottom_1;
+position = "{327, 0}";
 },
 {
-name = Anchor12_1;
-position = "{327, 0}";
+name = top_1;
+position = "{327, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -960,12 +963,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{466, 583}";
+name = bottom;
+position = "{466, 0}";
 },
 {
-name = Anchor12;
-position = "{466, 0}";
+name = top;
+position = "{466, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -1031,12 +1034,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{466, 583}";
+name = bottom_1;
+position = "{466, 0}";
 },
 {
-name = Anchor12_1;
-position = "{466, 0}";
+name = top_1;
+position = "{466, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -1129,12 +1132,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{338, 583}";
+name = bottom;
+position = "{338, 0}";
 },
 {
-name = Anchor12;
-position = "{338, 0}";
+name = top;
+position = "{338, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -1197,12 +1200,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{348, 583}";
+name = bottom;
+position = "{348, 0}";
 },
 {
-name = Anchor12;
-position = "{348, 0}";
+name = top;
+position = "{348, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -1287,7 +1290,7 @@ layers = (
 {
 anchors = (
 {
-name = _Anchor10;
+name = _top;
 position = "{0, 583}";
 }
 );
@@ -1315,7 +1318,7 @@ layers = (
 {
 anchors = (
 {
-name = _Anchor10;
+name = _top;
 position = "{0, 583}";
 }
 );
@@ -1343,7 +1346,7 @@ layers = (
 {
 anchors = (
 {
-name = _Anchor10;
+name = _top;
 position = "{0, 583}";
 }
 );
@@ -1371,7 +1374,7 @@ layers = (
 {
 anchors = (
 {
-name = _Anchor10;
+name = _top;
 position = "{0, 583}";
 }
 );
@@ -1399,7 +1402,7 @@ layers = (
 {
 anchors = (
 {
-name = _Anchor10;
+name = _top;
 position = "{0, 583}";
 }
 );
@@ -1427,7 +1430,7 @@ layers = (
 {
 anchors = (
 {
-name = _Anchor10;
+name = _top;
 position = "{0, 583}";
 }
 );
@@ -1455,7 +1458,7 @@ layers = (
 {
 anchors = (
 {
-name = _Anchor10;
+name = _top;
 position = "{0, 583}";
 }
 );
@@ -1483,12 +1486,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{304, 583}";
+name = bottom;
+position = "{304, 140}";
 },
 {
-name = Anchor12;
-position = "{304, 140}";
+name = top;
+position = "{304, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -1555,12 +1558,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{304, 583}";
+name = bottom_1;
+position = "{304, 140}";
 },
 {
-name = Anchor12_1;
-position = "{304, 140}";
+name = top_1;
+position = "{304, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -1637,12 +1640,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{303, 583}";
+name = bottom;
+position = "{303, 0}";
 },
 {
-name = Anchor12;
-position = "{303, 0}";
+name = top;
+position = "{303, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -1725,12 +1728,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{311, 583}";
+name = bottom;
+position = "{315, 0}";
 },
 {
-name = Anchor12;
-position = "{315, 0}";
+name = top;
+position = "{311, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -1796,12 +1799,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{314, 583}";
+name = bottom;
+position = "{314, 0}";
 },
 {
-name = Anchor12;
-position = "{314, 0}";
+name = top;
+position = "{314, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -1904,12 +1907,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{314, 583}";
+name = bottom_1;
+position = "{314, 0}";
 },
 {
-name = Anchor12_1;
-position = "{314, 0}";
+name = top_1;
+position = "{314, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -2027,12 +2030,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{314, 583}";
+name = bottom_1;
+position = "{314, 0}";
 },
 {
-name = Anchor12_1;
-position = "{314, 0}";
+name = top_1;
+position = "{314, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -2173,12 +2176,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{314, 583}";
+name = bottom_1;
+position = "{314, 0}";
 },
 {
-name = Anchor12_1;
-position = "{314, 0}";
+name = top_1;
+position = "{314, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -2303,12 +2306,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{467, 583}";
+name = bottom;
+position = "{487, 0}";
 },
 {
-name = Anchor12;
-position = "{487, 0}";
+name = top;
+position = "{467, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -2397,12 +2400,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{467, 583}";
+name = bottom_1;
+position = "{487, 0}";
 },
 {
-name = Anchor12_1;
-position = "{487, 0}";
+name = top_1;
+position = "{467, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -2520,12 +2523,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{466, 583}";
+name = bottom;
+position = "{466, 0}";
 },
 {
-name = Anchor12;
-position = "{466, 0}";
+name = top;
+position = "{466, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -2591,12 +2594,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{466, 583}";
+name = bottom_1;
+position = "{466, 0}";
 },
 {
-name = Anchor12_1;
-position = "{466, 0}";
+name = top_1;
+position = "{466, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -2684,12 +2687,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{466, 583}";
+name = bottom_1;
+position = "{466, 0}";
 },
 {
-name = Anchor12_1;
-position = "{466, 0}";
+name = top_1;
+position = "{466, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -2800,12 +2803,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{466, 583}";
+name = bottom_1;
+position = "{466, 0}";
 },
 {
-name = Anchor12_1;
-position = "{466, 0}";
+name = top_1;
+position = "{466, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -2900,12 +2903,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{466, 583}";
+name = bottom;
+position = "{466, 0}";
 },
 {
-name = Anchor12;
-position = "{466, 0}";
+name = top;
+position = "{466, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -2999,12 +3002,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{466, 583}";
+name = bottom_1;
+position = "{466, 0}";
 },
 {
-name = Anchor12_1;
-position = "{466, 0}";
+name = top_1;
+position = "{466, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -3122,12 +3125,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{354, 583}";
+name = bottom;
+position = "{354, 0}";
 },
 {
-name = Anchor12;
-position = "{354, 0}";
+name = top;
+position = "{354, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -3202,12 +3205,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{354, 583}";
+name = bottom_1;
+position = "{354, 0}";
 },
 {
-name = Anchor12_1;
-position = "{354, 0}";
+name = top_1;
+position = "{354, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -3304,12 +3307,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{354, 583}";
+name = bottom_1;
+position = "{354, 0}";
 },
 {
-name = Anchor12_1;
-position = "{354, 0}";
+name = top_1;
+position = "{354, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -3428,12 +3431,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{354, 583}";
+name = bottom_1;
+position = "{354, 0}";
 },
 {
-name = Anchor12_1;
-position = "{354, 0}";
+name = top_1;
+position = "{354, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -3544,12 +3547,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{294, 583}";
+name = bottom;
+position = "{294, 0}";
 },
 {
-name = Anchor12;
-position = "{294, 0}";
+name = top;
+position = "{294, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -3586,12 +3589,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{294, 583}";
+name = bottom_1;
+position = "{294, 0}";
 },
 {
-name = Anchor12_1;
-position = "{294, 0}";
+name = top_1;
+position = "{294, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -3647,12 +3650,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{387, 583}";
+name = bottom;
+position = "{396, 0}";
 },
 {
-name = Anchor12;
-position = "{396, 0}";
+name = top;
+position = "{387, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -3740,12 +3743,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{387, 583}";
+name = bottom_1;
+position = "{396, 0}";
 },
 {
-name = Anchor12_1;
-position = "{396, 0}";
+name = top_1;
+position = "{387, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -3852,12 +3855,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{330, 583}";
+name = bottom;
+position = "{330, 0}";
 },
 {
-name = Anchor12;
-position = "{330, 0}";
+name = top;
+position = "{330, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -3928,12 +3931,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{330, 583}";
+name = bottom;
+position = "{330, 0}";
 },
 {
-name = Anchor12;
-position = "{330, 0}";
+name = top;
+position = "{330, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4017,12 +4020,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{330, 583}";
+name = bottom_1;
+position = "{330, 0}";
 },
 {
-name = Anchor12_1;
-position = "{330, 0}";
+name = top_1;
+position = "{330, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4125,12 +4128,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{330, 583}";
+name = bottom_1;
+position = "{330, 0}";
 },
 {
-name = Anchor12_1;
-position = "{330, 0}";
+name = top_1;
+position = "{330, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4225,12 +4228,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{363, 583}";
+name = bottom;
+position = "{324, 0}";
 },
 {
-name = Anchor12;
-position = "{324, 0}";
+name = top;
+position = "{363, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4293,12 +4296,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{363, 583}";
+name = bottom_1;
+position = "{324, 0}";
 },
 {
-name = Anchor12_1;
-position = "{324, 0}";
+name = top_1;
+position = "{363, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4382,12 +4385,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{363, 583}";
+name = bottom_1;
+position = "{324, 0}";
 },
 {
-name = Anchor12_1;
-position = "{324, 0}";
+name = top_1;
+position = "{363, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4478,12 +4481,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{280, 583}";
+name = bottom;
+position = "{270, 0}";
 },
 {
-name = Anchor12;
-position = "{270, 0}";
+name = top;
+position = "{280, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4547,12 +4550,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{280, 583}";
+name = bottom_1;
+position = "{270, 0}";
 },
 {
-name = Anchor12_1;
-position = "{270, 0}";
+name = top_1;
+position = "{280, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4636,12 +4639,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{467, 583}";
+name = bottom;
+position = "{487, 0}";
 },
 {
-name = Anchor12;
-position = "{487, 0}";
+name = top;
+position = "{467, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4707,12 +4710,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{467, 583}";
+name = bottom_1;
+position = "{487, 0}";
 },
 {
-name = Anchor12_1;
-position = "{487, 0}";
+name = top_1;
+position = "{467, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4805,12 +4808,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{371, 583}";
+name = bottom;
+position = "{361, 0}";
 },
 {
-name = Anchor12;
-position = "{361, 0}";
+name = top;
+position = "{371, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -4897,12 +4900,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{391, 583}";
+name = bottom_1;
+position = "{358, 0}";
 },
 {
-name = Anchor12_1;
-position = "{358, 0}";
+name = top_1;
+position = "{391, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5001,12 +5004,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{394, 583}";
+name = bottom_1;
+position = "{361, 0}";
 },
 {
-name = Anchor12_1;
-position = "{361, 0}";
+name = top_1;
+position = "{394, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5127,12 +5130,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{371, 583}";
+name = bottom_1;
+position = "{361, 0}";
 },
 {
-name = Anchor12_1;
-position = "{361, 0}";
+name = top_1;
+position = "{371, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5240,12 +5243,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{370, 583}";
+name = bottom;
+position = "{378, 0}";
 },
 {
-name = Anchor12;
-position = "{378, 0}";
+name = top;
+position = "{370, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5333,12 +5336,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{370, 583}";
+name = bottom_1;
+position = "{378, 0}";
 },
 {
-name = Anchor12_1;
-position = "{378, 0}";
+name = top_1;
+position = "{370, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5446,12 +5449,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{365, 583}";
+name = bottom;
+position = "{384, 60}";
 },
 {
-name = Anchor12;
-position = "{384, 60}";
+name = top;
+position = "{365, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5513,12 +5516,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{204, 583}";
+name = bottom;
+position = "{234, 0}";
 },
 {
-name = Anchor12;
-position = "{234, 0}";
+name = top;
+position = "{204, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5570,12 +5573,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{204, 583}";
+name = bottom_1;
+position = "{234, 0}";
 },
 {
-name = Anchor12_1;
-position = "{234, 0}";
+name = top_1;
+position = "{204, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5639,12 +5642,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{204, 583}";
+name = bottom_1;
+position = "{234, 0}";
 },
 {
-name = Anchor12_1;
-position = "{234, 0}";
+name = top_1;
+position = "{204, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5728,12 +5731,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{204, 583}";
+name = bottom_1;
+position = "{234, 0}";
 },
 {
-name = Anchor12_1;
-position = "{234, 0}";
+name = top_1;
+position = "{204, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5804,12 +5807,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{291, 583}";
+name = bottom;
+position = "{305, 0}";
 },
 {
-name = Anchor12;
-position = "{305, 0}";
+name = top;
+position = "{291, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5863,12 +5866,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{304, 583}";
+name = bottom;
+position = "{304, 20}";
 },
 {
-name = Anchor12;
-position = "{304, 20}";
+name = top;
+position = "{304, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -5941,12 +5944,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{304, 583}";
+name = bottom_1;
+position = "{304, 20}";
 },
 {
-name = Anchor12_1;
-position = "{304, 20}";
+name = top_1;
+position = "{304, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6038,12 +6041,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{304, 583}";
+name = bottom_1;
+position = "{304, 20}";
 },
 {
-name = Anchor12_1;
-position = "{304, 20}";
+name = top_1;
+position = "{304, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6160,12 +6163,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{304, 583}";
+name = bottom_1;
+position = "{304, 20}";
 },
 {
-name = Anchor12_1;
-position = "{304, 20}";
+name = top_1;
+position = "{304, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6268,12 +6271,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{304, 583}";
+name = bottom;
+position = "{300, 20}";
 },
 {
-name = Anchor12;
-position = "{300, 20}";
+name = top;
+position = "{304, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6369,12 +6372,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{304, 583}";
+name = bottom_1;
+position = "{300, 20}";
 },
 {
-name = Anchor12_1;
-position = "{300, 20}";
+name = top_1;
+position = "{304, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6499,12 +6502,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{296, 583}";
+name = bottom;
+position = "{296, 20}";
 },
 {
-name = Anchor12;
-position = "{296, 20}";
+name = top;
+position = "{296, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6577,12 +6580,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{296, 583}";
+name = bottom_1;
+position = "{296, 20}";
 },
 {
-name = Anchor12_1;
-position = "{296, 20}";
+name = top_1;
+position = "{296, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6675,12 +6678,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{265, 583}";
+name = bottom;
+position = "{265, 0}";
 },
 {
-name = Anchor12;
-position = "{265, 0}";
+name = top;
+position = "{265, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6733,12 +6736,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{265, 583}";
+name = bottom_1;
+position = "{265, 0}";
 },
 {
-name = Anchor12_1;
-position = "{265, 0}";
+name = top_1;
+position = "{265, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6811,12 +6814,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{509, 583}";
+name = bottom;
+position = "{509, 0}";
 },
 {
-name = Anchor12;
-position = "{509, 0}";
+name = top;
+position = "{509, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6905,12 +6908,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{334, 583}";
+name = bottom;
+position = "{334, 0}";
 },
 {
-name = Anchor12;
-position = "{334, 0}";
+name = top;
+position = "{334, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -6997,12 +7000,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{334, 583}";
+name = bottom_1;
+position = "{334, 0}";
 },
 {
-name = Anchor12_1;
-position = "{334, 0}";
+name = top_1;
+position = "{334, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7109,12 +7112,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{314, 583}";
+name = bottom;
+position = "{314, 0}";
 },
 {
-name = Anchor12;
-position = "{314, 0}";
+name = top;
+position = "{314, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7167,12 +7170,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{314, 583}";
+name = bottom_1;
+position = "{314, 0}";
 },
 {
-name = Anchor12_1;
-position = "{314, 0}";
+name = top_1;
+position = "{314, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7243,12 +7246,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{333, 583}";
+name = bottom;
+position = "{283, 0}";
 },
 {
-name = Anchor12;
-position = "{283, 0}";
+name = top;
+position = "{333, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7325,12 +7328,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{333, 583}";
+name = bottom_1;
+position = "{283, 0}";
 },
 {
-name = Anchor12_1;
-position = "{283, 0}";
+name = top_1;
+position = "{333, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7428,12 +7431,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{319, 583}";
+name = bottom;
+position = "{319, 0}";
 },
 {
-name = Anchor12;
-position = "{319, 0}";
+name = top;
+position = "{319, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7506,12 +7509,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{515, 583}";
+name = bottom;
+position = "{515, 0}";
 },
 {
-name = Anchor12;
-position = "{515, 0}";
+name = top;
+position = "{515, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7620,12 +7623,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{275, 583}";
+name = bottom;
+position = "{295, 0}";
 },
 {
-name = Anchor12;
-position = "{295, 0}";
+name = top;
+position = "{275, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7681,12 +7684,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{275, 583}";
+name = bottom;
+position = "{295, 0}";
 },
 {
-name = Anchor12;
-position = "{295, 0}";
+name = top;
+position = "{275, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7760,12 +7763,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{327, 583}";
+name = bottom;
+position = "{327, 0}";
 },
 {
-name = Anchor12;
-position = "{327, 0}";
+name = top;
+position = "{327, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7827,12 +7830,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10_1;
-position = "{327, 583}";
+name = bottom_1;
+position = "{327, 0}";
 },
 {
-name = Anchor12_1;
-position = "{327, 0}";
+name = top_1;
+position = "{327, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -7921,12 +7924,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{530, 583}";
+name = bottom;
+position = "{530, 0}";
 },
 {
-name = Anchor12;
-position = "{530, 0}";
+name = top;
+position = "{530, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -8054,12 +8057,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{283, 583}";
+name = bottom;
+position = "{283, 0}";
 },
 {
-name = Anchor12;
-position = "{283, 0}";
+name = top;
+position = "{283, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -8405,12 +8408,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{503, 765}";
+name = bottom;
+position = "{0, 0}";
 },
 {
-name = Anchor12;
-position = "{0, 0}";
+name = top;
+position = "{503, 765}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -8731,12 +8734,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{667, 765}";
+name = bottom;
+position = "{0, 0}";
 },
 {
-name = Anchor12;
-position = "{0, 0}";
+name = top;
+position = "{667, 765}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -8787,12 +8790,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{419, 765}";
+name = bottom;
+position = "{0, 0}";
 },
 {
-name = Anchor12;
-position = "{0, 0}";
+name = top;
+position = "{419, 765}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -9532,12 +9535,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor10;
-position = "{253, 583}";
+name = bottom;
+position = "{253, 0}";
 },
 {
-name = Anchor12;
-position = "{253, 0}";
+name = top;
+position = "{253, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -9692,16 +9695,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor18;
+name = _top;
+position = "{0, 583}";
+},
+{
+name = top;
 position = "{0, 804}";
-},
-{
-name = _Anchor10;
-position = "{0, 583}";
-},
-{
-name = _Anchor18;
-position = "{0, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -9746,16 +9745,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor18;
+name = _top;
+position = "{0, 583}";
+},
+{
+name = top;
 position = "{0, 845}";
-},
-{
-name = _Anchor10;
-position = "{0, 583}";
-},
-{
-name = _Anchor18;
-position = "{0, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -9827,16 +9822,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor18;
+name = _top;
+position = "{0, 583}";
+},
+{
+name = top;
 position = "{0, 749}";
-},
-{
-name = _Anchor10;
-position = "{0, 583}";
-},
-{
-name = _Anchor18;
-position = "{0, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -9891,16 +9882,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor18;
+name = _top;
+position = "{0, 583}";
+},
+{
+name = top;
 position = "{0, 839}";
-},
-{
-name = _Anchor10;
-position = "{0, 583}";
-},
-{
-name = _Anchor18;
-position = "{0, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -9952,16 +9939,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor18;
+name = _top;
+position = "{0, 583}";
+},
+{
+name = top;
 position = "{0, 850}";
-},
-{
-name = _Anchor10;
-position = "{0, 583}";
-},
-{
-name = _Anchor18;
-position = "{0, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -10016,16 +9999,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor18;
+name = _top;
+position = "{0, 583}";
+},
+{
+name = top;
 position = "{0, 784}";
-},
-{
-name = _Anchor10;
-position = "{0, 583}";
-},
-{
-name = _Anchor18;
-position = "{0, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -10071,16 +10050,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor18;
+name = _top;
+position = "{0, 583}";
+},
+{
+name = top;
 position = "{0, 716}";
-},
-{
-name = _Anchor10;
-position = "{0, 583}";
-},
-{
-name = _Anchor18;
-position = "{0, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -10110,12 +10085,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor16;
-position = "{0, -182}";
+name = _bottom;
+position = "{0, 0}";
 },
 {
-name = _Anchor12;
-position = "{0, 0}";
+name = bottom;
+position = "{0, -182}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -10153,16 +10128,12 @@ layers = (
 {
 anchors = (
 {
-name = Anchor18;
+name = _top;
+position = "{0, 583}";
+},
+{
+name = top;
 position = "{0, 761}";
-},
-{
-name = _Anchor10;
-position = "{0, 583}";
-},
-{
-name = _Anchor18;
-position = "{0, 583}";
 }
 );
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -10204,11 +10175,7 @@ layers = (
 {
 anchors = (
 {
-name = _Anchor12;
-position = "{0, 0}";
-},
-{
-name = _Anchor16;
+name = _bottom;
 position = "{0, 0}";
 }
 );
