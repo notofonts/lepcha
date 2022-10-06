@@ -1,7 +1,8 @@
 {
 .appVersion = "3109";
 DisplayStrings = (
-"/uni1C0E_1C25/uni1C26.alt"
+"/uni1C0E_1C25/uni1C26.alt",
+"/uni1C00_1C25/uni1C00_1C25_1C24/uni1C00_1C24"
 );
 classes = (
 {
@@ -3934,16 +3935,16 @@ unicode = 1C00;
 },
 {
 glyphname = uni1C00_1C25;
-lastChange = "2022-10-06 09:04:06 +0000";
+lastChange = "2022-10-06 09:13:14 +0000";
 layers = (
 {
 anchors = (
 {
-name = bottom;
+name = bottom_1;
 position = "{330, 0}";
 },
 {
-name = top;
+name = top_1;
 position = "{330, 583}";
 }
 );
