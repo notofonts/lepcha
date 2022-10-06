@@ -1,6 +1,11 @@
 {
     "tests": [
         {
+            "input": "ᰀ᰷ᰥᰬᰓ᰷ᰥᰬ",
+            "expectation": "uni1C00_1C25=0+719|uni1C37_uni1C2C=0@-389,0+0|uni1C13_1C25=4+799|uni1C37_uni1C2C=4@-472,0+0",
+            "note": "#1"
+        },
+        {
             "input": "ᰀ᰷ᰤᰬ◌᰷ᰬ",
             "expectation": "uni1C00_1C24=0+840|uni1C37_uni1C2C=0@-510,0+0|uni25CC=4+510|uni1C37_uni1C2C=4@-257,0+0",
             "note": "#1",
