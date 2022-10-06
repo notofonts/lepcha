@@ -1,7 +1,7 @@
 {
 .appVersion = "3109";
 DisplayStrings = (
-"/uni1C2C"
+"/uni1C0E_1C25/uni1C26.alt"
 );
 classes = (
 {
@@ -222,6 +222,10 @@ name = "Don't use Production Names";
 value = 1;
 },
 {
+name = "Use Typo Metrics";
+value = 1;
+},
+{
 name = description;
 value = "Designed by Monotype design team.";
 },
@@ -244,10 +248,6 @@ value = "Noto is a trademark of Google Inc.";
 {
 name = versionString;
 value = "Version 2.004";
-},
-{
-name = "Use Typo Metrics";
-value = 1;
 }
 );
 date = "2021-12-16 18:44:50 +0000";
@@ -399,7 +399,7 @@ nodes = (
 width = 600;
 }
 );
-note = .notdef;
+note = ".notdef";
 },
 {
 glyphname = NULL;
@@ -3588,7 +3588,7 @@ unicode = 1C1E;
 },
 {
 glyphname = uni1C1E_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -3646,6 +3646,8 @@ width = 828;
 );
 leftKerningGroup = u1C1E;
 note = u1C1E_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C08;
@@ -3742,7 +3744,7 @@ unicode = 1C08;
 },
 {
 glyphname = uni1C08_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -3851,6 +3853,8 @@ width = 921;
 leftKerningGroup = u1C08;
 note = u1C08_1C24;
 rightKerningGroup = u1C23_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C00;
@@ -3930,7 +3934,7 @@ unicode = 1C00;
 },
 {
 glyphname = uni1C00_1C25;
-lastChange = "2022-04-23 20:12:39 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -4015,11 +4019,11 @@ leftKerningGroup = u1C00;
 note = u1C00_1C25;
 rightKerningGroup = u1C00_1C37_1C25;
 category = Letter;
-subCategory = Other;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C00_1C25_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -4124,6 +4128,8 @@ width = 929;
 );
 leftKerningGroup = u1C00;
 note = u1C00_1C25_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C00_1C24;
@@ -4295,7 +4301,7 @@ unicode = 1C02;
 },
 {
 glyphname = uni1C02_1C25;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -4381,10 +4387,12 @@ width = 749;
 );
 leftKerningGroup = u1C02;
 note = u1C02_1C25;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C02_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -4477,6 +4485,8 @@ width = 875;
 leftKerningGroup = u1C02;
 note = u1C02_1C24;
 rightKerningGroup = u1C13_1C25_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C01;
@@ -4549,7 +4559,7 @@ unicode = 1C01;
 },
 {
 glyphname = uni1C01_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -4635,6 +4645,8 @@ width = 783;
 leftKerningGroup = u1C01;
 note = u1C01_1C24;
 rightKerningGroup = u1C23_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C1C;
@@ -4709,7 +4721,7 @@ unicode = 1C1C;
 },
 {
 glyphname = uni1C1C_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -4804,6 +4816,8 @@ width = 1241;
 leftKerningGroup = u1C13;
 note = u1C1C_1C24;
 rightKerningGroup = u1C13_1C25_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C15;
@@ -4899,7 +4913,7 @@ unicode = 1C15;
 },
 {
 glyphname = uni1C15_1C25;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -5000,10 +5014,12 @@ width = 873;
 leftKerningGroup = u1C15_1C25;
 note = u1C15_1C25;
 rightKerningGroup = u1C15_1C25;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C15_1C25_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -5126,10 +5142,12 @@ width = 1122;
 leftKerningGroup = u1C15_1C25;
 note = u1C15_1C25_1C24;
 rightKerningGroup = u1C23_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C15_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -5239,6 +5257,8 @@ width = 977;
 leftKerningGroup = u1C15_1C25;
 note = u1C15_1C24;
 rightKerningGroup = u1C23_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C16;
@@ -5335,7 +5355,7 @@ unicode = 1C16;
 },
 {
 glyphname = uni1C16_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -5445,6 +5465,8 @@ width = 977;
 leftKerningGroup = u1C16;
 note = u1C16_1C24;
 rightKerningGroup = u1C23_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C0D;
@@ -5572,7 +5594,7 @@ unicode = 1C05;
 },
 {
 glyphname = uni1C05_1C25;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -5638,10 +5660,12 @@ width = 565;
 leftKerningGroup = u1C05;
 note = u1C05_1C25;
 rightKerningGroup = u1C15_1C25;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C05_1C25_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -5727,10 +5751,12 @@ width = 771;
 }
 );
 note = u1C05_1C25_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C05_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -5803,6 +5829,8 @@ width = 654;
 );
 note = u1C05_1C24;
 rightKerningGroup = u1C23_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C09;
@@ -5943,7 +5971,7 @@ unicode = 1C0E;
 },
 {
 glyphname = uni1C0E_1C25;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:03:33 +0000";
 layers = (
 {
 anchors = (
@@ -6037,10 +6065,12 @@ width = 739;
 );
 leftKerningGroup = u1C0E;
 note = u1C0E_1C25;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C0E_1C25_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -6159,10 +6189,12 @@ width = 954;
 leftKerningGroup = u1C0E;
 note = u1C0E_1C25_1C24;
 rightKerningGroup = u1C13_1C25_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C0E_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -6267,6 +6299,8 @@ width = 892;
 leftKerningGroup = u1C0E;
 note = u1C0E_1C24;
 rightKerningGroup = u1C13_1C25_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C10;
@@ -6371,7 +6405,7 @@ unicode = 1C10;
 },
 {
 glyphname = uni1C10_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -6498,6 +6532,8 @@ width = 892;
 );
 note = u1C10_1C24;
 rightKerningGroup = u1C13_1C25_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C0F;
@@ -6579,7 +6615,7 @@ unicode = 1C0F;
 },
 {
 glyphname = uni1C0F_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -6674,6 +6710,8 @@ width = 864;
 leftKerningGroup = u1C0F;
 note = u1C0F_1C24;
 rightKerningGroup = u1C23_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C1B;
@@ -6735,7 +6773,7 @@ unicode = 1C1B;
 },
 {
 glyphname = uni1C1B_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -6810,6 +6848,8 @@ width = 754;
 leftKerningGroup = u1C1B;
 note = u1C1B_1C24;
 rightKerningGroup = u1C23_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C20;
@@ -7169,7 +7209,7 @@ unicode = 1C0A;
 },
 {
 glyphname = uni1C0A_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -7242,6 +7282,8 @@ width = 842;
 leftKerningGroup = u1C0A;
 note = u1C0A_1C24;
 rightKerningGroup = u1C13_1C25_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C0B;
@@ -7327,7 +7369,7 @@ unicode = 1C0B;
 },
 {
 glyphname = uni1C0B_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -7427,6 +7469,8 @@ width = 921;
 );
 note = u1C0B_1C24;
 rightKerningGroup = u1C23_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C17;
@@ -7829,7 +7873,7 @@ unicode = 1C1F;
 },
 {
 glyphname = uni1C1F_1C24;
-lastChange = "2022-04-25 08:08:05 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 anchors = (
@@ -7920,6 +7964,8 @@ width = 908;
 leftKerningGroup = u1C13;
 note = u1C1F_1C24;
 rightKerningGroup = u1C13_1C25_1C24;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C22;
@@ -8659,7 +8705,7 @@ subCategory = Nonspacing;
 },
 {
 glyphname = uni1C25_1C24;
-lastChange = "2017-09-18 13:29:20 +0000";
+lastChange = "2022-10-06 09:04:06 +0000";
 layers = (
 {
 layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
@@ -8728,8 +8774,8 @@ nodes = (
 width = 0;
 }
 );
-category = Mark;
-subCategory = Nonspacing;
+category = Letter;
+subCategory = Ligature;
 },
 {
 glyphname = uni1C29.wide;
