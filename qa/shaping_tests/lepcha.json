@@ -1,6 +1,16 @@
 {
     "tests": [
         {
+            "input": "ᰡᰦᰰ",
+            "expectation": "uni1C21=0+675|uni1C30=0@-341,0+0|uni1C26=0+354",
+            "note": "Top should anchor despite post-base"
+        },
+        {
+            "input": "ᰡᰬᰦ",
+            "expectation": "uni1C21=0+675|uni1C2C=0@-341,0+0|uni1C26=0+354",
+            "note": "Bottom should anchor despite post-base"
+        },
+        {
             "input": "ᰀ᰷ᰥᰬᰓ᰷ᰥᰬ",
             "expectation": "uni1C00_1C25=0+719|uni1C37_uni1C2C=0@-389,0+0|uni1C13_1C25=4+799|uni1C37_uni1C2C=4@-472,0+0",
             "note": "#1"
@@ -408,13 +418,13 @@
             "only": "NotoSansLepcha-Regular.ttf"
         },
         {
-            "expectation": "uni1C05_1C24=0+918|uni1C2A.alt=0+0",
+            "expectation": "uni1C05_1C24=0+654|uni1C2A=0+279",
             "input": "ᰅᰤᰪ",
             "note": "Added by SIESTA",
             "only": "NotoSansLepcha-Regular.ttf"
         },
         {
-            "expectation": "uni1C17=0+640|uni1C2D=0@-321,0+0|uni1C06=2+677|uni1C31=2@-339,0+0|uni1C00_1C24=4+1083|uni1C2A.alt=4+0",
+            "expectation": "uni1C17=0+640|uni1C2D=0@-321,0+0|uni1C06=2+677|uni1C31=2@-339,0+0|uni1C00_1C24=4+840|uni1C2A=4+279",
             "input": "ᰗᰭᰆᰱᰀᰤᰪ",
             "note": "Added by SIESTA",
             "only": "NotoSansLepcha-Regular.ttf"
