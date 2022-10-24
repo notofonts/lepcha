@@ -1,5 +1,8 @@
 {
 .appVersion = "3109";
+DisplayStrings = (
+"/uni1C25_1C24"
+);
 classes = (
 {
 code = "uni1C03 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04 uni1C04_1C24 uni1C12 uni1C12_1C24 uni1C14 uni1C14_1C24 uni1C18 uni1C1C uni1C1C_1C24 uni1C20 uni1C22";
@@ -99,13 +102,13 @@ code = "languagesystem DFLT dflt;\012languagesystem lepc dflt;\012";
 name = Languagesystems;
 },
 {
-code = "lookup add_uni1C24 {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C24;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C24;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C24;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C24;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C24;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C24;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C24;\012sub uni1C2D by uni1C2D uni1C24;\012sub uni1C2E by uni1C2E uni1C24;\012sub uni1C2F by uni1C2F uni1C24;\012sub uni1C30 by uni1C30 uni1C24;\012sub uni1C31 by uni1C31 uni1C24;\012sub uni1C32 by uni1C32 uni1C24;\012sub uni1C33 by uni1C33 uni1C24;\012sub uni1C36 by uni1C36 uni1C24;\012} add_uni1C24;\012\012lookup add_uni1C25 {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C25;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C25;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C25;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C25;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C25;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C25;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C25;\012sub uni1C2D by uni1C2D uni1C25;\012sub uni1C2E by uni1C2E uni1C25;\012sub uni1C2F by uni1C2F uni1C25;\012sub uni1C30 by uni1C30 uni1C25;\012sub uni1C31 by uni1C31 uni1C25;\012sub uni1C32 by uni1C32 uni1C25;\012sub uni1C33 by uni1C33 uni1C25;\012sub uni1C36 by uni1C36 uni1C25;\012} add_uni1C25;\012\012lookup add_uni1C26 {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C26;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C26;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C26;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C26;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C26;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C26;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C26;\012sub uni1C2D by uni1C2D uni1C26;\012sub uni1C2E by uni1C2E uni1C26;\012sub uni1C2F by uni1C2F uni1C26;\012sub uni1C30 by uni1C30 uni1C26;\012sub uni1C31 by uni1C31 uni1C26;\012sub uni1C32 by uni1C32 uni1C26;\012sub uni1C33 by uni1C33 uni1C26;\012sub uni1C36 by uni1C36 uni1C26;\012} add_uni1C26;\012\012lookup add_uni1C2A {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C2A;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C2A;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C2A;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C2A;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C2A;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C2A;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C2A;\012sub uni1C2D by uni1C2D uni1C2A;\012sub uni1C2E by uni1C2E uni1C2A;\012sub uni1C2F by uni1C2F uni1C2A;\012sub uni1C30 by uni1C30 uni1C2A;\012sub uni1C31 by uni1C31 uni1C2A;\012sub uni1C32 by uni1C32 uni1C2A;\012sub uni1C33 by uni1C33 uni1C2A;\012sub uni1C36 by uni1C36 uni1C2A;\012} add_uni1C2A;\012\012lookup add_uni1C2B {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C2B;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C2B;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C2B;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C2B;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C2B;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C2B;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C2B;\012sub uni1C2D by uni1C2D uni1C2B;\012sub uni1C2E by uni1C2E uni1C2B;\012sub uni1C2F by uni1C2F uni1C2B;\012sub uni1C30 by uni1C30 uni1C2B;\012sub uni1C31 by uni1C31 uni1C2B;\012sub uni1C32 by uni1C32 uni1C2B;\012sub uni1C33 by uni1C33 uni1C2B;\012sub uni1C36 by uni1C36 uni1C2B;\012} add_uni1C2B;\012\012lookup add_uni1C25_1C24 {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C25_1C24;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C25_1C24;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C25_1C24;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C25_1C24;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C25_1C24;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C25_1C24;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C25_1C24;\012sub uni1C2D by uni1C2D uni1C25_1C24;\012sub uni1C2E by uni1C2E uni1C25_1C24;\012sub uni1C2F by uni1C2F uni1C25_1C24;\012sub uni1C30 by uni1C30 uni1C25_1C24;\012sub uni1C31 by uni1C31 uni1C25_1C24;\012sub uni1C32 by uni1C32 uni1C25_1C24;\012sub uni1C33 by uni1C33 uni1C25_1C24;\012sub uni1C36 by uni1C36 uni1C25_1C24;\012} add_uni1C25_1C24;\012\012\012";
+code = "lookup add_uni1C24_above {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C24;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C24;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C24;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C24;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C24;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C24;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C24;\012sub uni1C2D by uni1C2D uni1C24;\012sub uni1C2E by uni1C2E uni1C24;\012sub uni1C2F by uni1C2F uni1C24;\012sub uni1C30 by uni1C30 uni1C24;\012sub uni1C31 by uni1C31 uni1C24;\012sub uni1C32 by uni1C32 uni1C24;\012sub uni1C33 by uni1C33 uni1C24;\012sub uni1C36 by uni1C36 uni1C24;\012} add_uni1C24_above;\012\012lookup add_uni1C25_above {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C25;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C25;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C25;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C25;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C25;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C25;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C25;\012sub uni1C2D by uni1C2D uni1C25;\012sub uni1C2E by uni1C2E uni1C25;\012sub uni1C2F by uni1C2F uni1C25;\012sub uni1C30 by uni1C30 uni1C25;\012sub uni1C31 by uni1C31 uni1C25;\012sub uni1C32 by uni1C32 uni1C25;\012sub uni1C33 by uni1C33 uni1C25;\012sub uni1C36 by uni1C36 uni1C25;\012} add_uni1C25_above;\012\012lookup add_uni1C26_above {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C26;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C26;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C26;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C26;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C26;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C26;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C26;\012sub uni1C2D by uni1C2D uni1C26;\012sub uni1C2E by uni1C2E uni1C26;\012sub uni1C2F by uni1C2F uni1C26;\012sub uni1C30 by uni1C30 uni1C26;\012sub uni1C31 by uni1C31 uni1C26;\012sub uni1C32 by uni1C32 uni1C26;\012sub uni1C33 by uni1C33 uni1C26;\012sub uni1C36 by uni1C36 uni1C26;\012} add_uni1C26_above;\012\012lookup add_uni1C2A_above {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C2A;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C2A;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C2A;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C2A;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C2A;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C2A;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C2A;\012sub uni1C2D by uni1C2D uni1C2A;\012sub uni1C2E by uni1C2E uni1C2A;\012sub uni1C2F by uni1C2F uni1C2A;\012sub uni1C30 by uni1C30 uni1C2A;\012sub uni1C31 by uni1C31 uni1C2A;\012sub uni1C32 by uni1C32 uni1C2A;\012sub uni1C33 by uni1C33 uni1C2A;\012sub uni1C36 by uni1C36 uni1C2A;\012} add_uni1C2A_above;\012\012lookup add_uni1C2B_above {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C2B;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C2B;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C2B;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C2B;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C2B;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C2B;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C2B;\012sub uni1C2D by uni1C2D uni1C2B;\012sub uni1C2E by uni1C2E uni1C2B;\012sub uni1C2F by uni1C2F uni1C2B;\012sub uni1C30 by uni1C30 uni1C2B;\012sub uni1C31 by uni1C31 uni1C2B;\012sub uni1C32 by uni1C32 uni1C2B;\012sub uni1C33 by uni1C33 uni1C2B;\012sub uni1C36 by uni1C36 uni1C2B;\012} add_uni1C2B_above;\012\012lookup add_uni1C25_1C24_above {\012	lookupflag UseMarkFilteringSet @above_marks;\012	sub uni1C2D_1C36 by uni1C2D_1C36 uni1C25_1C24;\012sub uni1C2F_1C36 by uni1C2F_1C36 uni1C25_1C24;\012sub uni1C2E_1C36 by uni1C2E_1C36 uni1C25_1C24;\012sub uni1C30_1C36 by uni1C30_1C36 uni1C25_1C24;\012sub uni1C31_1C36 by uni1C31_1C36 uni1C25_1C24;\012sub uni1C32_1C36 by uni1C32_1C36 uni1C25_1C24;\012sub uni1C33_1C36 by uni1C33_1C36 uni1C25_1C24;\012sub uni1C2D by uni1C2D uni1C25_1C24;\012sub uni1C2E by uni1C2E uni1C25_1C24;\012sub uni1C2F by uni1C2F uni1C25_1C24;\012sub uni1C30 by uni1C30 uni1C25_1C24;\012sub uni1C31 by uni1C31 uni1C25_1C24;\012sub uni1C32 by uni1C32 uni1C25_1C24;\012sub uni1C33 by uni1C33 uni1C25_1C24;\012sub uni1C36 by uni1C36 uni1C25_1C24;\012} add_uni1C25_1C24_above;\012\012lookup add_uni1C24_below {\012	lookupflag UseMarkFilteringSet @below_marks;\012	sub uni1C37_uni1C2C by uni1C37_uni1C2C uni1C24;\012	sub uni1C37 by uni1C37 uni1C24;\012	sub uni1C2C by uni1C2C uni1C24;\012} add_uni1C24_below;\012\012lookup add_uni1C25_below {\012	lookupflag UseMarkFilteringSet @below_marks;\012	sub uni1C37_uni1C2C by uni1C37_uni1C2C uni1C25;\012	sub uni1C37 by uni1C37 uni1C25;\012	sub uni1C2C by uni1C2C uni1C25;\012} add_uni1C25_below;\012\012lookup add_uni1C26_below {\012	lookupflag UseMarkFilteringSet @below_marks;\012	sub uni1C37_uni1C2C by uni1C37_uni1C2C uni1C26;\012	sub uni1C37 by uni1C37 uni1C26;\012	sub uni1C2C by uni1C2C uni1C26;\012} add_uni1C26_below;\012\012lookup add_uni1C2A_below {\012	lookupflag UseMarkFilteringSet @below_marks;\012	sub uni1C37_uni1C2C by uni1C37_uni1C2C uni1C2A;\012	sub uni1C37 by uni1C37 uni1C2A;\012	sub uni1C2C by uni1C2C uni1C2A;\012} add_uni1C2A_below;\012lookup add_uni1C2B_below {\012	lookupflag UseMarkFilteringSet @below_marks;\012	sub uni1C37_uni1C2C by uni1C37_uni1C2C uni1C2B;\012	sub uni1C37 by uni1C37 uni1C2B;\012	sub uni1C2C by uni1C2C uni1C2B;\012} add_uni1C2B_below;\012lookup add_uni1C25_1C24_below {\012	lookupflag UseMarkFilteringSet @below_marks;\012	sub uni1C37_uni1C2C by uni1C37_uni1C2C uni1C25_1C24;\012	sub uni1C37 by uni1C37 uni1C25_1C24;\012	sub uni1C2C by uni1C2C uni1C25_1C24;\012} add_uni1C25_1C24_below;\012\012\012";
 name = Swaps;
 }
 );
 features = (
 {
-code = "lookup BelowMarkLigs {\012	lookupflag UseMarkFilteringSet @below_marks IgnoreLigatures;\012	sub uni1C37' uni1C2C' by uni1C37_uni1C2C;\012	sub uni1C37' @postbase uni1C2C by uni1C37_uni1C2C;\012} BelowMarkLigs;\012lookup TidyUpBelowMark {\012	sub uni1C37_uni1C2C @postbase uni1C2C' by NULL;\012} TidyUpBelowMark;\012\012lookup BasePostLigs {\012	lookupflag IgnoreMarks;\012    sub uni1C00 uni1C24 by uni1C00_1C24;\012    sub uni1C00 uni1C25 by uni1C00_1C25;\012    sub uni1C00 uni1C25 uni1C24 by uni1C00_1C25_1C24;\012    sub uni1C01 uni1C24 by uni1C01_1C24;\012    sub uni1C02 uni1C24 by uni1C02_1C24;\012    sub uni1C02 uni1C25 by uni1C02_1C25;\012    sub uni1C03 uni1C24 by uni1C03_1C24;\012    sub uni1C03 uni1C25 by uni1C03_1C25;\012    sub uni1C03 uni1C25 uni1C24 by uni1C03_1C25_1C24;\012    sub uni1C04 uni1C24 by uni1C04_1C24;\012    sub uni1C05 uni1C24 by uni1C05_1C24;\012    sub uni1C05 uni1C25 by uni1C05_1C25;\012    sub uni1C05 uni1C25 uni1C24 by uni1C05_1C25_1C24;\012    sub uni1C08 uni1C24 by uni1C08_1C24;\012    sub uni1C0A uni1C24 by uni1C0A_1C24;\012    sub uni1C0B uni1C24 by uni1C0B_1C24;\012    sub uni1C0C uni1C24 by uni1C0C_1C24;\012    sub uni1C0E uni1C24 by uni1C0E_1C24;\012    sub uni1C0E uni1C25 by uni1C0E_1C25;\012    sub uni1C0E uni1C25 uni1C24 by uni1C0E_1C25_1C24;\012    sub uni1C0F uni1C24 by uni1C0F_1C24;\012    sub uni1C10 uni1C24 by uni1C10_1C24;\012    sub uni1C11 uni1C24 by uni1C11_1C24;\012    sub uni1C11 uni1C25 by uni1C11_1C25;\012    sub uni1C11 uni1C25 uni1C24 by uni1C11_1C25_1C24;\012    sub uni1C12 uni1C24 by uni1C12_1C24;\012    sub uni1C13 uni1C24 by uni1C13_1C24;\012    sub uni1C13 uni1C25 by uni1C13_1C25;\012    sub uni1C13 uni1C25 uni1C24 by uni1C13_1C25_1C24;\012    sub uni1C14 uni1C24 by uni1C14_1C24;\012    sub uni1C15 uni1C24 by uni1C15_1C24;\012    sub uni1C15 uni1C25 by uni1C15_1C25;\012    sub uni1C15 uni1C25 uni1C24 by uni1C15_1C25_1C24;\012    sub uni1C16 uni1C24 by uni1C16_1C24;\012    sub uni1C1B uni1C24 by uni1C1B_1C24;\012    sub uni1C1C uni1C24 by uni1C1C_1C24;\012    sub uni1C1D uni1C24 by uni1C1D_1C24;\012    sub uni1C1D uni1C25 by uni1C1D_1C25;\012    sub uni1C1D uni1C25 uni1C24 by uni1C1D_1C25_1C24;\012    sub uni1C1E uni1C24 by uni1C1E_1C24;\012    sub uni1C1F uni1C24 by uni1C1F_1C24;\012    sub uni1C21 uni1C24 by uni1C21_1C24;\012    sub uni1C23 uni1C24 by uni1C23_1C24;\012    sub uni1C25 uni1C24 by uni1C25_1C24;\012} BasePostLigs;\012\012lookup TopMarkLigs {\012    lookupflag 0;\012    sub uni1C2D uni1C36 by uni1C2D_1C36;\012    sub uni1C2F uni1C36 by uni1C2F_1C36;\012    sub uni1C2E uni1C36 by uni1C2E_1C36;\012    sub uni1C30 uni1C36 by uni1C30_1C36;\012    sub uni1C31 uni1C36 by uni1C31_1C36;\012    sub uni1C32 uni1C36 by uni1C32_1C36;\012    sub uni1C33 uni1C36 by uni1C33_1C36;\012    sub uni1C36 uni1C2D by uni1C2D_1C36;\012    sub uni1C36 uni1C2E by uni1C2E_1C36;\012    sub uni1C36 uni1C2F by uni1C2F_1C36;\012    sub uni1C36 uni1C30 by uni1C30_1C36;\012    sub uni1C36 uni1C31 by uni1C31_1C36;\012    sub uni1C36 uni1C32 by uni1C32_1C36;\012    sub uni1C36 uni1C33 by uni1C33_1C36;\012} TopMarkLigs;\012";
+code = "\012lookup BasePostLigs {\012	lookupflag IgnoreMarks;\012    sub uni1C00 uni1C24 by uni1C00_1C24;\012    sub uni1C00 uni1C25 by uni1C00_1C25;\012    sub uni1C00 uni1C25 uni1C24 by uni1C00_1C25_1C24;\012    sub uni1C01 uni1C24 by uni1C01_1C24;\012    sub uni1C02 uni1C24 by uni1C02_1C24;\012    sub uni1C02 uni1C25 by uni1C02_1C25;\012    sub uni1C03 uni1C24 by uni1C03_1C24;\012    sub uni1C03 uni1C25 by uni1C03_1C25;\012    sub uni1C03 uni1C25 uni1C24 by uni1C03_1C25_1C24;\012    sub uni1C04 uni1C24 by uni1C04_1C24;\012    sub uni1C05 uni1C24 by uni1C05_1C24;\012    sub uni1C05 uni1C25 by uni1C05_1C25;\012    sub uni1C05 uni1C25 uni1C24 by uni1C05_1C25_1C24;\012    sub uni1C08 uni1C24 by uni1C08_1C24;\012    sub uni1C0A uni1C24 by uni1C0A_1C24;\012    sub uni1C0B uni1C24 by uni1C0B_1C24;\012    sub uni1C0C uni1C24 by uni1C0C_1C24;\012    sub uni1C0E uni1C24 by uni1C0E_1C24;\012    sub uni1C0E uni1C25 by uni1C0E_1C25;\012    sub uni1C0E uni1C25 uni1C24 by uni1C0E_1C25_1C24;\012    sub uni1C0F uni1C24 by uni1C0F_1C24;\012    sub uni1C10 uni1C24 by uni1C10_1C24;\012    sub uni1C11 uni1C24 by uni1C11_1C24;\012    sub uni1C11 uni1C25 by uni1C11_1C25;\012    sub uni1C11 uni1C25 uni1C24 by uni1C11_1C25_1C24;\012    sub uni1C12 uni1C24 by uni1C12_1C24;\012    sub uni1C13 uni1C24 by uni1C13_1C24;\012    sub uni1C13 uni1C25 by uni1C13_1C25;\012    sub uni1C13 uni1C25 uni1C24 by uni1C13_1C25_1C24;\012    sub uni1C14 uni1C24 by uni1C14_1C24;\012    sub uni1C15 uni1C24 by uni1C15_1C24;\012    sub uni1C15 uni1C25 by uni1C15_1C25;\012    sub uni1C15 uni1C25 uni1C24 by uni1C15_1C25_1C24;\012    sub uni1C16 uni1C24 by uni1C16_1C24;\012    sub uni1C1B uni1C24 by uni1C1B_1C24;\012    sub uni1C1C uni1C24 by uni1C1C_1C24;\012    sub uni1C1D uni1C24 by uni1C1D_1C24;\012    sub uni1C1D uni1C25 by uni1C1D_1C25;\012    sub uni1C1D uni1C25 uni1C24 by uni1C1D_1C25_1C24;\012    sub uni1C1E uni1C24 by uni1C1E_1C24;\012    sub uni1C1F uni1C24 by uni1C1F_1C24;\012    sub uni1C21 uni1C24 by uni1C21_1C24;\012    sub uni1C23 uni1C24 by uni1C23_1C24;\012    sub uni1C25 uni1C24 by uni1C25_1C24;\012} BasePostLigs;\012\012lookup BelowMarkLigs {\012	lookupflag UseMarkFilteringSet @below_marks IgnoreLigatures;\012	sub uni1C37' uni1C2C' by uni1C37_uni1C2C;\012	sub uni1C37' @postbase uni1C2C by uni1C37_uni1C2C;\012	sub uni1C37' @postbase @postbase uni1C2C by uni1C37_uni1C2C;\012	sub uni1C37' @postbase @postbase @postbase uni1C2C by uni1C37_uni1C2C;\012} BelowMarkLigs;\012lookup TidyUpBelowMark {\012	sub uni1C37_uni1C2C @postbase @postbase @postbase uni1C2C' by NULL;\012	sub uni1C37_uni1C2C @postbase @postbase uni1C2C' by NULL;\012	sub uni1C37_uni1C2C @postbase uni1C2C' by NULL;\012} TidyUpBelowMark;\012\012lookup TopMarkLigs {\012    lookupflag 0;\012    sub uni1C2D uni1C36 by uni1C2D_1C36;\012    sub uni1C2F uni1C36 by uni1C2F_1C36;\012    sub uni1C2E uni1C36 by uni1C2E_1C36;\012    sub uni1C30 uni1C36 by uni1C30_1C36;\012    sub uni1C31 uni1C36 by uni1C31_1C36;\012    sub uni1C32 uni1C36 by uni1C32_1C36;\012    sub uni1C33 uni1C36 by uni1C33_1C36;\012    sub uni1C36 uni1C2D by uni1C2D_1C36;\012    sub uni1C36 uni1C2E by uni1C2E_1C36;\012    sub uni1C36 uni1C2F by uni1C2F_1C36;\012    sub uni1C36 uni1C30 by uni1C30_1C36;\012    sub uni1C36 uni1C31 by uni1C31_1C36;\012    sub uni1C36 uni1C32 by uni1C32_1C36;\012    sub uni1C36 uni1C33 by uni1C33_1C36;\012} TopMarkLigs;\012";
 name = ccmp;
 },
 {
@@ -113,7 +116,7 @@ code = "#sub uni1C25 by uni1C25.alt;\012#sub uni1C24 by uni1C24.alt;\012#sub uni
 name = abvs;
 },
 {
-code = "# Because of a rendering bug on OS X, we can't skip over postbase\012# marks while attaching above marks to the base. So we need to swap\012# them to bring the above mark immediately next to the base.\012lookup postbase_swap1 {\012lookupflag UseMarkFilteringSet @above_marks;\012sub @AllLetters uni1C26' @above_marks' lookup add_uni1C26;\012sub @AllLetters uni1C25' @above_marks' lookup add_uni1C25;\012sub @AllLetters uni1C2A' @above_marks' lookup add_uni1C2A;\012sub @AllLetters uni1C2B' @above_marks' lookup add_uni1C2B;\012sub @AllLetters uni1C24' @above_marks' lookup add_uni1C24;\012sub @AllLetters uni1C25_1C24' @above_marks' lookup add_uni1C25_1C24;\012} postbase_swap1;\012\012lookup postbase_swap2 {\012	# This is a rather ugly way of doing it, but it should work.\012	sub @postbase' @above_marks @postbase by NULL;\012} postbase_swap2;";
+code = "lookup postbase_swap1 {\012lookupflag UseMarkFilteringSet @above_marks;\012sub @AllLetters uni1C26' @above_marks' lookup add_uni1C26_above;\012sub @AllLetters uni1C25' @above_marks' lookup add_uni1C25_above;\012sub @AllLetters uni1C2A' @above_marks' lookup add_uni1C2A_above;\012sub @AllLetters uni1C2B' @above_marks' lookup add_uni1C2B_above;\012sub @AllLetters uni1C24' @above_marks' lookup add_uni1C24_above;\012sub @AllLetters uni1C25_1C24' @above_marks' lookup add_uni1C25_1C24_above;\012} postbase_swap1;\012\012lookup postbase_swap2 {\012	lookupflag UseMarkFilteringSet @above_marks;\012	# This is a rather ugly way of doing it, but it should work.\012	sub @postbase' @above_marks @postbase by NULL;\012} postbase_swap2;\012\012lookup postbase_swap3 {\012lookupflag UseMarkFilteringSet @below_marks;\012sub @AllLetters uni1C26' @below_marks' lookup add_uni1C26_below;\012sub @AllLetters uni1C25' @below_marks' lookup add_uni1C25_below;\012sub @AllLetters uni1C2A' @below_marks' lookup add_uni1C2A_below;\012sub @AllLetters uni1C2B' @below_marks' lookup add_uni1C2B_below;\012sub @AllLetters uni1C24' @below_marks' lookup add_uni1C24_below;\012sub @AllLetters uni1C25_1C24' @below_marks' lookup add_uni1C25_1C24_below;\012} postbase_swap3;\012\012lookup postbase_swap4 {\012	lookupflag UseMarkFilteringSet @below_marks;\012	sub @postbase' @below_marks @postbase by NULL;\012} postbase_swap4;\012";
 name = psts;
 },
 {
@@ -3294,6 +3297,83 @@ width = 663;
 );
 note = u1C4F;
 unicode = 1C4F;
+},
+{
+color = 5;
+glyphname = uni1C25_1C24;
+lastChange = "2022-10-24 09:55:53 +0000";
+layers = (
+{
+layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
+paths = (
+{
+closed = 1;
+nodes = (
+"49 425 LINE",
+"57 373 OFFCURVE",
+"61 309 OFFCURVE",
+"61 250 CURVE SMOOTH",
+"61 206 OFFCURVE",
+"59 165 OFFCURVE",
+"56 125 CURVE SMOOTH",
+"53 85 OFFCURVE",
+"47 45 OFFCURVE",
+"40 4 CURVE",
+"109 -11 LINE",
+"132 84 OFFCURVE",
+"141 165 OFFCURVE",
+"141 247 CURVE SMOOTH",
+"141 285 OFFCURVE",
+"139 322 OFFCURVE",
+"136 359 CURVE",
+"142 361 LINE",
+"159 474 LINE"
+);
+},
+{
+closed = 1;
+nodes = (
+"300 468 OFFCURVE",
+"307 431 OFFCURVE",
+"307 388 CURVE SMOOTH",
+"307 360 OFFCURVE",
+"304 334 OFFCURVE",
+"297 308 CURVE SMOOTH",
+"290 282 OFFCURVE",
+"279 256 OFFCURVE",
+"264 226 CURVE",
+"261 227 LINE",
+"246 316 OFFCURVE",
+"217 395 OFFCURVE",
+"159 474 CURVE",
+"94 425 LINE",
+"125 386 OFFCURVE",
+"148 348 OFFCURVE",
+"166 305 CURVE SMOOTH",
+"184 262 OFFCURVE",
+"197 218 OFFCURVE",
+"208 165 CURVE",
+"286 141 LINE",
+"321 188 OFFCURVE",
+"346 230 OFFCURVE",
+"363 273 CURVE SMOOTH",
+"380 316 OFFCURVE",
+"387 359 OFFCURVE",
+"387 409 CURVE SMOOTH",
+"387 457 OFFCURVE",
+"379 499 OFFCURVE",
+"365 541 CURVE",
+"283 514 LINE"
+);
+}
+);
+width = 432;
+}
+);
+leftMetricsKey = "=uni1C25";
+rightMetricsKey = "=uni1C24";
+category = Letter;
+subCategory = Other;
 },
 {
 glyphname = uni1C23_1C24;
@@ -7740,81 +7820,6 @@ width = 908;
 leftKerningGroup = u1C13;
 note = u1C1F_1C24;
 rightKerningGroup = u1C13_1C25_1C24;
-category = Letter;
-subCategory = Ligature;
-},
-{
-color = 5;
-glyphname = uni1C25_1C24;
-lastChange = "2022-10-24 08:50:23 +0000";
-layers = (
-{
-layerId = "677D40D0-0324-4315-A4A8-9988F2BAD02F";
-paths = (
-{
-closed = 1;
-nodes = (
-"-383 425 LINE",
-"-375 373 OFFCURVE",
-"-371 309 OFFCURVE",
-"-371 250 CURVE SMOOTH",
-"-371 206 OFFCURVE",
-"-373 165 OFFCURVE",
-"-376 125 CURVE SMOOTH",
-"-379 85 OFFCURVE",
-"-385 45 OFFCURVE",
-"-392 4 CURVE",
-"-323 -11 LINE",
-"-300 84 OFFCURVE",
-"-291 165 OFFCURVE",
-"-291 247 CURVE SMOOTH",
-"-291 285 OFFCURVE",
-"-293 322 OFFCURVE",
-"-296 359 CURVE",
-"-290 361 LINE",
-"-273 474 LINE"
-);
-},
-{
-closed = 1;
-nodes = (
-"-132 468 OFFCURVE",
-"-125 431 OFFCURVE",
-"-125 388 CURVE SMOOTH",
-"-125 360 OFFCURVE",
-"-128 334 OFFCURVE",
-"-135 308 CURVE SMOOTH",
-"-142 282 OFFCURVE",
-"-153 256 OFFCURVE",
-"-168 226 CURVE",
-"-171 227 LINE",
-"-186 316 OFFCURVE",
-"-215 395 OFFCURVE",
-"-273 474 CURVE",
-"-338 425 LINE",
-"-307 386 OFFCURVE",
-"-284 348 OFFCURVE",
-"-266 305 CURVE SMOOTH",
-"-248 262 OFFCURVE",
-"-235 218 OFFCURVE",
-"-224 165 CURVE",
-"-146 141 LINE",
-"-111 188 OFFCURVE",
-"-86 230 OFFCURVE",
-"-69 273 CURVE SMOOTH",
-"-52 316 OFFCURVE",
-"-45 359 OFFCURVE",
-"-45 409 CURVE SMOOTH",
-"-45 457 OFFCURVE",
-"-53 499 OFFCURVE",
-"-67 541 CURVE",
-"-149 514 LINE"
-);
-}
-);
-width = 0;
-}
-);
 category = Letter;
 subCategory = Ligature;
 },
