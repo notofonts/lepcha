@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Diffenator3</title>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+		crossorigin="anonymous"></script>
+	<style type="text/css">
+		@font-face {
+      font-family: "Font Before";
+      src: url();
+    }
+
+    @font-face {
+      font-family: "Font After";
+      src: url();
+    }
+
+    .font-before, .font-after {
+      font-variation-settings: "wght" 400, "wdth" 100;
+    }
+
+    .font-before {
+      font-family: "Font Before", "Adobe Notdef";
+    }
+
+    .font-after {
+      font-family: "Font After", "Adobe Notdef";
+    }
+
+	:root {
+	--node-pt-size: 40px;
+	}
+
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #b3d4f5 !important;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active {
+    background-color: #ced9e4 !important;
+}
+.nav-item {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 2px;
+}
+
+.nav-pills .nav-link{
+    background-color: #9fcaf5 !important;
+}
+h4 {
+    color: #6f7882 !important;
+}
+
+@font-face {
+    font-family: "Adobe NotDef";
+    src: url(https://cdn.jsdelivr.net/gh/adobe-fonts/adobe-notdef/AND-Regular.ttf);
+}
+
+.box-title {
+    width: 100%;
+    font-size: 8pt;
+    font-weight: 700;
+    border-top: 1px solid black;
+    padding-top: 5px;
+    margin-bottom: 10pt;
+    display: block;
+}
+
+.box {
+    margin-bottom: 20pt;
+    width: 100%;
+    float: left;
+}
+
+.box-text {}
+
+#ui-nav {
+    position: fixed;
+    right: 20px;
+    z-index: 100;
+}
+
+#font-toggle {}
+
+.ui-nav-item {
+    display: block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    user-select: none;
+    /* Standard */
+    text-align: center;
+    color: white;
+    background-color: black;
+    display: block;
+    font-size: 14pt;
+    padding: 5px;
+    margin: 2px;
+}
+
+/* Stuff needed for the table differ */
+body {
+    font-family: Helvetica;
+}
+
+.node {
+    font-family: courier;
+    cursor: pointer;
+    position: relative;
+    left: 30px;
+    padding: 5px;
+    display: block;
+    border: 1px dashed grey;
+    background-color: #e9e9ee;
+}
+
+.header {
+    font-weight: bold;
+}
+
+.attr-before {
+    color: green;
+    cursor: text;
+}
+
+.attr-after {
+    color: red;
+    cursor: text;
+}
+
+.leaf {
+    font-weight: bold;
+}
+
+.old .cell .new {
+    display: none;
+}
+
+.new .cell .old {
+    display: none;
+}
+
+.both .cell .old {
+    opacity: 0.75;
+    color: red;
+}
+
+.both .cell .new {
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    color: green;
+}
+
+.spacer {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+#ot-panel {
+    max-height: 400px;
+    overflow-y: scroll;
+    background: white;
+    padding: 10px;
+    display: none;
+   }
+
+   .cell{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 5pt;
+    margin: 5pt;
+    width: 50pt;
+    font-size: var(--node-pt-size);
+    line-height: calc(var(--node-pt-size) * 1.5);
+  }
+  .cell-word{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 5pt;
+    margin: 5pt;
+    font-size: var(--node-pt-size);
+    line-height: calc(var(--node-pt-size) * 1.5);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+  .cell-glyph{
+    z-index: -100;
+    float: left;
+    display: block;
+    text-align: center;
+    border-radius: 5pt;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 5pt;
+    margin: 5pt;
+    width: calc(var(--node-pt-size) * 2);
+    min-height: calc(var(--node-pt-size) * 2);
+    font-size: var(--node-pt-size);
+  }
+  .cell-glyph.font-before, .cell-word.font-before {
+    background: #eff6f2;
+  }
+  .cell-glyph.font-after, .cell-word.font-after {
+    background: #f7f4f4;
+  }
+
+  .cell-glyph:hover {
+    box-shadow: none;
+    background: #f0f0f5;
+  }
+  .cat-strings .cell {
+    clear: both;
+    position: static;
+    float: none;
+    text-align: left;
+  }
+  .codepoint {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 10pt;
+    line-height: 10pt;
+  }
+  .box-title {
+    clear: both;
+  }
+  .node.closed::before {
+    content: "+";
+    margin-right: 5pt;
+  }
+  .node.open::before {
+    content: "-";
+    margin-right: 5pt;
+  }
+
+  .tooltip pre {
+    background-color: #6f7882;
+    padding: 5px;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .tooltip {
+    line-height: 1em;
+  }
+  .tooltip-inner {
+    max-width: 300px;
+  }
+
+  h1,h2,h3,h4,h5 {
+    clear: both;
+  }
+
+  #locationnav li {
+    white-space: wrap;
+  }
+
+  #userdefined div { width: 100%; }
+  
+/* The following rules are used in the WASM version, not in the CLI version.
+   But we keep them here so we can share them between the two versions. */
+
+   .modal-dialog {
+    max-width: 100% !important;
+    margin: 0 !important;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+  }
+
+  .fontdrop {
+    padding: 30px;
+    border-radius: 20px;
+    outline: 3px dashed #ffffffff;
+    outline-offset: -20px;
+  }
+
+  #fontbefore {
+    background-color: #ddffdddd;
+  }
+
+  #fontafter {
+    background-color: #ffdddddd;
+  }
+
+  .dragging {
+    background-image: linear-gradient(rgb(0 0 0/5%) 0 0);
+    outline: 5px dashed #ffffffff;
+  }
+
+  #diffkerns {
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+		</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+		<div id="ui-nav">
+		  <div class="ui-nav-item" id="fonttoggle">Old</div>
+		  <div class="ui-nav-item" id="fontanimate">Animate</div>
+		  <div id="axes">
+		  </div>
+		</div>
+	
+	<div class="row">
+		<div class="col-2">
+			<ul class="nav nav-pills" id="locationnav">
+			</ul>
+		</div>
+		<div class="col-9 mt-3">
+			<div id="title"></div>
+			<div id="cmapdiff"> </div>
+			<div id="main"></div>
+			<div id="userdefined">
+				<h4>User defined sample text</h4>
+				<div contenteditable="true" class="font-before cell-word">
+					You can type your own text here to see it previewed in the fonts.
+				</div>
+				<div style="clear: both"></div>
+			</div>
+			<div id="diffkerns"> </div>
+			<div id="difftable"> </div>
+		</div>
+	</div>
+	<script type="module">
+		function renderTableDiff(node, toplevel) {
+  var wrapper = $("<div> </div>");
+  if (!node) {
+    return wrapper;
+  }
+  if (Array.isArray(node) && node.length == 2) {
+    var before = $("<span/>");
+    before.addClass("attr-before");
+    before.html(" " + node[0] + " ");
+    var after = $("<span/>");
+    after.addClass("attr-after");
+    after.append(renderTableDiff(node[1], true).children());
+    wrapper.append(before);
+    wrapper.append(after);
+    return wrapper;
+  }
+  if (node.constructor != Object) {
+    var thing = $("<span/>");
+    thing.html(node);
+    wrapper.append(thing);
+    return wrapper;
+  }
+  for (const [key, value] of Object.entries(node)) {
+    var display = $("<div/>");
+    display.addClass("node");
+    if (!toplevel) {
+      display.hide();
+    }
+    display.append(key);
+    display.append(renderTableDiff(value, false).children());
+    if (display.children(".node").length > 0) {
+      display.addClass("closed");
+    }
+    wrapper.append(display);
+  }
+  return wrapper;
+}
+
+function addAGlyph(glyph, where) {
+  let title = "";
+  if (glyph.name) {
+    title = "name: " + glyph.name;
+  }
+  let cp =
+    "<br>U+" +
+    glyph.string.codePointAt(0).toString(16).padStart(4, "0").toUpperCase();
+  where.append(`
+        <div class="cell-glyph font-before">
+        <div data-toggle="tooltip" data-html="true" data-title="${glyph.differing_pixels} pixels"> ${glyph.string}
+        <div class="codepoint" data-toggle="tooltip" data-html="true" data-title="${title}">
+		${cp}
+        </div>
+        </div>
+    `);
+}
+
+function addAWord(diff, where) {
+  if (!diff.buffer_b) {
+    diff.buffer_b = diff.buffer_a;
+  }
+  where.append(`
+		<div class="cell-word font-before">
+		<span data-toggle="tooltip" data-html="true" data-title="Before: <pre>${diff.buffer_a}</pre>After: <pre>${diff.buffer_b}</pre><br>difference: ${diff.differing_pixels} pixels">
+		${diff.word}
+		</span>
+		</div>
+	`);
+}
+
+function diffTables(report) {
+  $("#difftable").empty();
+  $("#difftable").append(`<h4 class="mt-2 box-title">Table-level details</h4>`);
+  $("#difftable").append(
+    renderTableDiff({ tables: report["tables"] }, true).children()
+  );
+  $("#difftable .node").on("click", function (e) {
+    $(this).toggleClass("closed open");
+    $(this).children(".node").toggle();
+    e.stopPropagation();
+  });
+}
+function diffKerns(report) {
+  $("#diffkerns").empty();
+  $("#diffkerns").append(`<h4 class="mt-2">Modified Kerns</h4>`);
+  $("#diffkerns").append(
+    `<table class="table table-striped" id="diffkerns"><tr><th>Pair</th><th>Old</old><th>New</th></table>`
+  );
+  for (let [pair, value] of Object.entries(report["kerns"])) {
+    if (pair == "error") {
+      $("#diffkerns").append(`<p class="text-danger">Error: ${value}</p>`);
+      continue;
+    } else {
+      let row = $("<tr>");
+      row.append(`<td>${pair}</td>`);
+      row.append(`<td>${serializeKernBefore(value)}</td>`);
+      row.append(`<td>${serializeKernAfter(value)}</td>`);
+      $("#diffkerns table").append(row);
+    }
+  }
+}
+
+function serializeKernBefore(kern) {
+  if (Array.isArray(kern)) {
+    return serializeKern(kern[0], -1);
+  }
+  return serializeKern(kern, 0);
+}
+
+function serializeKernAfter(kern) {
+  if (Array.isArray(kern)) {
+    return serializeKern(kern[1], -1);
+  }
+  return serializeKern(kern, 1);
+}
+
+function serializeKern(kern, index) {
+  let string = "";
+  if (kern === null || kern === undefined) {
+    return "(null)";
+  }
+  if (kern.x) {
+    string += serializeKernValue(kern.x, index);
+  } else if (kern.y) {
+    string = "0";
+  }
+
+  if (kern.y) {
+    string += "," + serializeKernValue(kern.y, index);
+  }
+  if (!kern.x_placement && !kern.y_placement) {
+    return string;
+  }
+  string += "@";
+  if (kern.x_placement) {
+    string += serializeKernValue(kern.x_placement, index);
+  } else if (kern.y_placement) {
+    string += "0";
+  }
+  if (kern.y_placement) {
+    string += "," + serializeKernValue(kern.y_placement, index);
+  }
+  return string;
+}
+
+function serializeKernValue(kern, index) {
+  if (typeof kern == "number") {
+    return kern;
+  }
+  let string = "(";
+  let verybig = Object.entries(kern).length > 5;
+  for (let [key, value] of Object.entries(kern)) {
+    if (key == "default") {
+      string += value[index] + " ";
+    } else {
+      string += value[index] + "@" + key + " ";
+    }
+    if (verybig) {
+      string += "<br>";
+    }
+  }
+  return string.trim() + ")";
+}
+
+function cmapDiff(report) {
+  if (report.cmap_diff && (report.cmap_diff.new || report.cmap_diff.missing)) {
+    $("#cmapdiff").append(
+      `<h4 class="mt-2">Added and Removed Encoded Glyphs</h4>`
+    );
+    if (report["cmap_diff"]["new"]) {
+      $("#cmapdiff").append(`<h4 class="box-title">Added Glyphs</h4>`);
+      let added = $("<div>");
+      for (let glyph of report["cmap_diff"]["new"]) {
+        addAGlyph(glyph, added);
+      }
+      $("#cmapdiff").append(added);
+    }
+
+    if (report["cmap_diff"]["missing"]) {
+      $("#cmapdiff").append(`<h4 class="box-title">Removed Glyphs</h4>`);
+      let missing = $("<div>");
+      for (let glyph of report["cmap_diff"]["missing"]) {
+        addAGlyph(glyph, missing);
+      }
+      $("#cmapdiff").append(missing);
+    }
+  } else {
+    $("#cmapdiff").append(`<p>No changes to encoded glyphs</p>`);
+  }
+}
+
+function setupAnimation() {
+  $("#fonttoggle").click(function () {
+    if ($(this).text() == "Old") {
+      $(this).text("New");
+      $(".font-before").removeClass("font-before").addClass("font-after");
+    } else {
+      $(this).text("Old");
+      $(".font-after").removeClass("font-after").addClass("font-before");
+    }
+  });
+
+  let animationHandle;
+  function animate() {
+    $("#fonttoggle").click();
+    animationHandle = setTimeout(animate, 1000);
+  }
+  $("#fontanimate").click(function () {
+    if ($(this).text() == "Animate") {
+      $(this).text("Stop");
+      animate();
+    } else {
+      $(this).text("Animate");
+      clearTimeout(animationHandle);
+    }
+  });
+}
+
+export {
+  renderTableDiff,
+  addAGlyph,
+  addAWord,
+  cmapDiff,
+  diffTables,
+  diffKerns,
+  setupAnimation,
+};
+
+	var report = {"tables":{"GDEF":{"glyph_classes":{"uni1C3E":[null,"Base"]}},"GPOS":{"script_list":{"DFLT/dflt":{"lookups":{"4":[5,null]}},"lepc/dflt":{"lookups":{"3":[5,4]}}},"feature_list":{"blwm":{"0":[4,5],"1":[5,6],"2":[6,7]},"dist":{"0":[7,8],"1":[8,9]},"kern":[[7],null],"mark":{"1":[null,4]}},"lookup_list":{"2":{"0":{"basemarks":{"uni1C2D_1C36":[{"anchor_0":{"x":0,"y":982}},null],"uni1C2F_1C36":[{"anchor_0":{"x":0,"y":1023}},null],"uni1C2E_1C36":[{"anchor_0":{"x":0,"y":928}},null],"uni1C30_1C36":[{"anchor_0":{"x":0,"y":1018}},null],"uni1C31_1C36":[{"anchor_0":{"x":0,"y":1028}},null],"uni1C32_1C36":[{"anchor_0":{"x":0,"y":962}},null],"uni1C33_1C36":[{"anchor_0":{"x":0,"y":895}},null]}}},"3":{"0":{"marks":{"anchor_0":{"uni1C2D_1C36":[{"x":0,"y":583},null],"uni1C2F_1C36":[{"x":0,"y":583},null],"uni1C2E_1C36":[{"x":0,"y":583},null],"uni1C30_1C36":[{"x":0,"y":583},null],"uni1C31_1C36":[{"x":0,"y":583},null],"uni1C32_1C36":[{"x":0,"y":583},null],"uni1C33_1C36":[{"x":0,"y":583},null],"uni1C2D":[{"x":0,"y":583},null],"uni1C2E":[{"x":0,"y":583},null],"uni1C2F":[{"x":0,"y":583},null],"uni1C30":[{"x":0,"y":583},null],"uni1C31":[{"x":0,"y":583},null],"uni1C32":[{"x":0,"y":583},null],"uni1C33":[{"x":0,"y":583},null],"uni1C36":[{"x":0,"y":583},null],"uni1C37_uni1C2C":[null,{"x":0,"y":0}],"uni1C37":[null,{"x":0,"y":0}],"uni1C2C":[null,{"x":0,"y":0}]},"anchor_1":[{"uni1C37_uni1C2C":{"x":0,"y":0},"uni1C37":{"x":0,"y":0},"uni1C2C":{"x":0,"y":0}},null]},"bases":{"uni25CC":{"anchor_0":{"y":[583,0]},"anchor_1":[{"x":253,"y":0},null]}}}},"4":{"0":{"marks":{"anchor_0":{"uni1C37_uni1C2C":[{"x":0,"y":0},null],"uni1C37":[{"x":0,"y":0},null],"uni1C2C":[{"x":0,"y":0},null],"uni1C2D_1C36":[null,{"x":0,"y":583}],"uni1C2F_1C36":[null,{"x":0,"y":583}],"uni1C2E_1C36":[null,{"x":0,"y":583}],"uni1C30_1C36":[null,{"x":0,"y":583}],"uni1C31_1C36":[null,{"x":0,"y":583}],"uni1C32_1C36":[null,{"x":0,"y":583}],"uni1C33_1C36":[null,{"x":0,"y":583}],"uni1C2D":[null,{"x":0,"y":583}],"uni1C2E":[null,{"x":0,"y":583}],"uni1C2F":[null,{"x":0,"y":583}],"uni1C30":[null,{"x":0,"y":583}],"uni1C31":[null,{"x":0,"y":583}],"uni1C32":[null,{"x":0,"y":583}],"uni1C33":[null,{"x":0,"y":583}],"uni1C36":[null,{"x":0,"y":583}]}},"bases":{"uni1C00":[{"anchor_0":{"x":330,"y":0}},null],"uni1C01":[{"anchor_0":{"x":270,"y":0}},null],"uni1C02":[{"anchor_0":{"x":324,"y":0}},null],"uni1C03":[{"anchor_0":{"x":466,"y":0}},null],"uni1C04":[{"anchor_0":{"x":466,"y":0}},null],"uni1C05":[{"anchor_0":{"x":234,"y":0}},null],"uni1C06":[{"anchor_0":{"x":338,"y":0}},null],"uni1C07":[{"anchor_0":{"x":348,"y":0}},null],"uni1C08":[{"anchor_0":{"x":396,"y":0}},null],"uni1C09":[{"anchor_0":{"x":305,"y":0}},null],"uni1C0A":[{"anchor_0":{"x":314,"y":0}},null],"uni1C0B":[{"anchor_0":{"x":283,"y":0}},null],"uni1C0C":[{"anchor_0":{"x":304,"y":140}},null],"uni1C0D":[{"anchor_0":{"x":384,"y":60}},null],"uni1C0E":[{"anchor_0":{"x":304,"y":20}},null],"uni1C0F":[{"anchor_0":{"x":296,"y":20}},null],"uni1C10":[{"anchor_0":{"x":300,"y":20}},null],"uni1C11":[{"anchor_0":{"x":314,"y":0}},null],"uni1C12":[{"anchor_0":{"x":487,"y":0}},null],"uni1C13":[{"anchor_0":{"x":327,"y":0}},null],"uni1C14":[{"anchor_0":{"x":466,"y":0}},null],"uni1C15":[{"anchor_0":{"x":361,"y":0}},null],"uni1C16":[{"anchor_0":{"x":378,"y":0}},null],"uni1C17":[{"anchor_0":{"x":319,"y":0}},null],"uni1C18":[{"anchor_0":{"x":515,"y":0}},null],"uni1C19":[{"anchor_0":{"x":315,"y":0}},null],"uni1C1A":[{"anchor_0":{"x":283,"y":0}},null],"uni1C1B":[{"anchor_0":{"x":265,"y":0}},null],"uni1C1C":[{"anchor_0":{"x":487,"y":0}},null],"uni1C1D":[{"anchor_0":{"x":354,"y":0}},null],"uni1C1E":[{"anchor_0":{"x":294,"y":0}},null],"uni1C1F":[{"anchor_0":{"x":327,"y":0}},null],"uni1C20":[{"anchor_0":{"x":509,"y":0}},null],"uni1C21":[{"anchor_0":{"x":334,"y":0}},null],"uni1C22":[{"anchor_0":{"x":530,"y":0}},null],"uni1C23":[{"anchor_0":{"x":305,"y":0}},null],"uni1C4D":[{"anchor_0":{"x":295,"y":0}},null],"uni1C4E":[{"anchor_0":{"x":295,"y":0}},null],"uni1C4F":[{"anchor_0":{"x":303,"y":0}},null],"uni1C29":[{"anchor_0":{"x":0,"y":0}},null],"uni1C29.short":[{"anchor_0":{"x":0,"y":0}},null],"uni1C29.wide":[{"anchor_0":{"x":0,"y":0}},null],"uni25CC":[null,{"anchor_0":{"x":253,"y":583}}]}}},"5":{"0":{"type":["mark_to_lig","mark_to_base"],"ligatures":[{"uni1C23_1C24":{"anchor_0_1":{"x":305,"y":0}},"uni1C13_1C24":{"anchor_0_1":{"x":327,"y":0}},"uni1C13_1C25":{"anchor_0_1":{"x":327,"y":0}},"uni1C13_1C25_1C24":{"anchor_0_1":{"x":327,"y":0}},"uni1C14_1C24":{"anchor_0_1":{"x":466,"y":0}},"uni1C0C_1C24":{"anchor_0_1":{"x":304,"y":140}},"uni1C11_1C24":{"anchor_0_1":{"x":314,"y":0}},"uni1C11_1C25":{"anchor_0_1":{"x":314,"y":0}},"uni1C11_1C25_1C24":{"anchor_0_1":{"x":314,"y":0}},"uni1C12_1C24":{"anchor_0_1":{"x":487,"y":0}},"uni1C03_1C24":{"anchor_0_1":{"x":466,"y":0}},"uni1C03_1C25":{"anchor_0_1":{"x":466,"y":0}},"uni1C03_1C25_1C24":{"anchor_0_1":{"x":466,"y":0}},"uni1C04_1C24":{"anchor_0_1":{"x":466,"y":0}},"uni1C1D_1C24":{"anchor_0_1":{"x":354,"y":0}},"uni1C1D_1C25":{"anchor_0_1":{"x":354,"y":0}},"uni1C1D_1C25_1C24":{"anchor_0_1":{"x":354,"y":0}},"uni1C1E_1C24":{"anchor_0_1":{"x":294,"y":0}},"uni1C08_1C24":{"anchor_0_1":{"x":396,"y":0}},"uni1C00_1C24":{"anchor_0_1":{"x":330,"y":0}},"uni1C00_1C25":{"anchor_0_1":{"x":330,"y":0}},"uni1C00_1C25_1C24":{"anchor_0_1":{"x":330,"y":0}},"uni1C02_1C24":{"anchor_0_1":{"x":324,"y":0}},"uni1C02_1C25":{"anchor_0_1":{"x":324,"y":0}},"uni1C01_1C24":{"anchor_0_1":{"x":270,"y":0}},"uni1C1C_1C24":{"anchor_0_1":{"x":487,"y":0}},"uni1C15_1C24":{"anchor_0_1":{"x":361,"y":0}},"uni1C15_1C25":{"anchor_0_1":{"x":358,"y":0}},"uni1C15_1C25_1C24":{"anchor_0_1":{"x":361,"y":0}},"uni1C16_1C24":{"anchor_0_1":{"x":378,"y":0}},"uni1C05_1C24":{"anchor_0_1":{"x":234,"y":0}},"uni1C05_1C25":{"anchor_0_1":{"x":234,"y":0}},"uni1C05_1C25_1C24":{"anchor_0_1":{"x":234,"y":0}},"uni1C0E_1C24":{"anchor_0_1":{"x":304,"y":20}},"uni1C0E_1C25":{"anchor_0_1":{"x":304,"y":20}},"uni1C0E_1C25_1C24":{"anchor_0_1":{"x":304,"y":20}},"uni1C10_1C24":{"anchor_0_1":{"x":300,"y":20}},"uni1C0F_1C24":{"anchor_0_1":{"x":296,"y":20}},"uni1C1B_1C24":{"anchor_0_1":{"x":265,"y":0}},"uni1C21_1C24":{"anchor_0_1":{"x":334,"y":0}},"uni1C0A_1C24":{"anchor_0_1":{"x":314,"y":0}},"uni1C0B_1C24":{"anchor_0_1":{"x":283,"y":0}},"uni1C1F_1C24":{"anchor_0_1":{"x":327,"y":0}}},null],"bases":[null,{"uni1C00":{"anchor_0":{"x":330,"y":0}},"uni1C01":{"anchor_0":{"x":270,"y":0}},"uni1C02":{"anchor_0":{"x":324,"y":0}},"uni1C03":{"anchor_0":{"x":466,"y":0}},"uni1C04":{"anchor_0":{"x":466,"y":0}},"uni1C05":{"anchor_0":{"x":234,"y":0}},"uni1C06":{"anchor_0":{"x":338,"y":0}},"uni1C07":{"anchor_0":{"x":348,"y":0}},"uni1C08":{"anchor_0":{"x":396,"y":0}},"uni1C09":{"anchor_0":{"x":305,"y":0}},"uni1C0A":{"anchor_0":{"x":314,"y":0}},"uni1C0B":{"anchor_0":{"x":283,"y":0}},"uni1C0C":{"anchor_0":{"x":304,"y":140}},"uni1C0D":{"anchor_0":{"x":384,"y":60}},"uni1C0E":{"anchor_0":{"x":304,"y":20}},"uni1C0F":{"anchor_0":{"x":296,"y":20}},"uni1C10":{"anchor_0":{"x":300,"y":20}},"uni1C11":{"anchor_0":{"x":314,"y":0}},"uni1C12":{"anchor_0":{"x":487,"y":0}},"uni1C13":{"anchor_0":{"x":327,"y":0}},"uni1C14":{"anchor_0":{"x":466,"y":0}},"uni1C15":{"anchor_0":{"x":361,"y":0}},"uni1C16":{"anchor_0":{"x":378,"y":0}},"uni1C17":{"anchor_0":{"x":319,"y":0}},"uni1C18":{"anchor_0":{"x":515,"y":0}},"uni1C19":{"anchor_0":{"x":315,"y":0}},"uni1C1A":{"anchor_0":{"x":283,"y":0}},"uni1C1B":{"anchor_0":{"x":265,"y":0}},"uni1C1C":{"anchor_0":{"x":487,"y":0}},"uni1C1D":{"anchor_0":{"x":354,"y":0}},"uni1C1E":{"anchor_0":{"x":294,"y":0}},"uni1C1F":{"anchor_0":{"x":327,"y":0}},"uni1C20":{"anchor_0":{"x":509,"y":0}},"uni1C21":{"anchor_0":{"x":334,"y":0}},"uni1C22":{"anchor_0":{"x":530,"y":0}},"uni1C23":{"anchor_0":{"x":305,"y":0}},"uni1C4D":{"anchor_0":{"x":295,"y":0}},"uni1C4E":{"anchor_0":{"x":295,"y":0}},"uni1C4F":{"anchor_0":{"x":303,"y":0}},"uni1C3E":{"anchor_0":{"x":482,"y":260}},"uni1C29":{"anchor_0":{"x":0,"y":0}},"uni1C29.short":{"anchor_0":{"x":0,"y":0}},"uni1C29.wide":{"anchor_0":{"x":0,"y":0}}}]}},"6":{"0":{"type":["mark_to_mark","mark_to_lig"],"basemarks":[{"uni1C37_uni1C2C":{"anchor_0":{"x":0,"y":-182}},"uni1C37":{"anchor_0":{"x":0,"y":-182}}},null],"ligatures":[null,{"uni1C23_1C24":{"anchor_0_1":{"x":305,"y":0}},"uni1C13_1C24":{"anchor_0_1":{"x":327,"y":0}},"uni1C13_1C25":{"anchor_0_1":{"x":327,"y":0}},"uni1C13_1C25_1C24":{"anchor_0_1":{"x":327,"y":0}},"uni1C14_1C24":{"anchor_0_1":{"x":466,"y":0}},"uni1C0C_1C24":{"anchor_0_1":{"x":304,"y":140}},"uni1C11_1C24":{"anchor_0_1":{"x":314,"y":0}},"uni1C11_1C25":{"anchor_0_1":{"x":314,"y":0}},"uni1C11_1C25_1C24":{"anchor_0_1":{"x":314,"y":0}},"uni1C12_1C24":{"anchor_0_1":{"x":487,"y":0}},"uni1C03_1C24":{"anchor_0_1":{"x":466,"y":0}},"uni1C03_1C25":{"anchor_0_1":{"x":466,"y":0}},"uni1C03_1C25_1C24":{"anchor_0_1":{"x":466,"y":0}},"uni1C04_1C24":{"anchor_0_1":{"x":466,"y":0}},"uni1C1D_1C24":{"anchor_0_1":{"x":354,"y":0}},"uni1C1D_1C25":{"anchor_0_1":{"x":354,"y":0}},"uni1C1D_1C25_1C24":{"anchor_0_1":{"x":354,"y":0}},"uni1C1E_1C24":{"anchor_0_1":{"x":294,"y":0}},"uni1C08_1C24":{"anchor_0_1":{"x":396,"y":0}},"uni1C00_1C24":{"anchor_0_1":{"x":330,"y":0}},"uni1C00_1C25":{"anchor_0_1":{"x":330,"y":0}},"uni1C00_1C25_1C24":{"anchor_0_1":{"x":330,"y":0}},"uni1C02_1C24":{"anchor_0_1":{"x":324,"y":0}},"uni1C02_1C25":{"anchor_0_1":{"x":324,"y":0}},"uni1C01_1C24":{"anchor_0_1":{"x":270,"y":0}},"uni1C1C_1C24":{"anchor_0_1":{"x":487,"y":0}},"uni1C15_1C24":{"anchor_0_1":{"x":361,"y":0}},"uni1C15_1C25":{"anchor_0_1":{"x":358,"y":0}},"uni1C15_1C25_1C24":{"anchor_0_1":{"x":361,"y":0}},"uni1C16_1C24":{"anchor_0_1":{"x":378,"y":0}},"uni1C05_1C24":{"anchor_0_1":{"x":234,"y":0}},"uni1C05_1C25":{"anchor_0_1":{"x":234,"y":0}},"uni1C05_1C25_1C24":{"anchor_0_1":{"x":234,"y":0}},"uni1C0E_1C24":{"anchor_0_1":{"x":304,"y":20}},"uni1C0E_1C25":{"anchor_0_1":{"x":304,"y":20}},"uni1C0E_1C25_1C24":{"anchor_0_1":{"x":304,"y":20}},"uni1C10_1C24":{"anchor_0_1":{"x":300,"y":20}},"uni1C0F_1C24":{"anchor_0_1":{"x":296,"y":20}},"uni1C1B_1C24":{"anchor_0_1":{"x":265,"y":0}},"uni1C21_1C24":{"anchor_0_1":{"x":334,"y":0}},"uni1C0A_1C24":{"anchor_0_1":{"x":314,"y":0}},"uni1C0B_1C24":{"anchor_0_1":{"x":283,"y":0}},"uni1C1F_1C24":{"anchor_0_1":{"x":327,"y":0}}}]}},"7":{"0":{"type":["pair","mark_to_mark"],"uni1C27":[{"uni1C02":{"x":-20},"uni1C03":{"x":-20},"uni1C12":{"x":-20},"uni1C13":{"x":-20},"uni1C14":{"x":-20},"uni1C18":{"x":-20},"uni1C1C":{"x":-20},"uni1C1F":{"x":-20},"uni1C20":{"x":-20},"uni1C21":{"x":-20},"uni1C13_1C24":{"x":-20},"uni1C13_1C25":{"x":-20},"uni1C13_1C25_1C24":{"x":-20},"uni1C14_1C24":{"x":-20},"uni1C12_1C24":{"x":-20},"uni1C03_1C24":{"x":-20},"uni1C03_1C25":{"x":-20},"uni1C03_1C25_1C24":{"x":-20},"uni1C02_1C24":{"x":-20},"uni1C02_1C25":{"x":-20},"uni1C1C_1C24":{"x":-20},"uni1C21_1C24":{"x":-20},"uni1C1F_1C24":{"x":-20}},null],"uni1C34":[{"uni1C05":{"x":-30},"uni1C1B":{"x":-25},"uni1C1E":{"x":-20},"uni1C1E_1C24":{"x":-20},"uni1C05_1C25":{"x":-30},"uni1C1B_1C24":{"x":-25}},null],"uni1C28":[{"uni1C00":{"x":-30},"uni1C01":{"x":-30},"uni1C02":{"x":-40},"uni1C03":{"x":-45},"uni1C06":{"x":-40},"uni1C08":{"x":-16},"uni1C0A":{"x":-35},"uni1C0F":{"x":-16},"uni1C12":{"x":-45},"uni1C13":{"x":-45},"uni1C14":{"x":-45},"uni1C16":{"x":-20},"uni1C18":{"x":-45},"uni1C19":{"x":-30},"uni1C1C":{"x":-45},"uni1C1F":{"x":-45},"uni1C20":{"x":-45},"uni1C21":{"x":-45},"uni1C13_1C24":{"x":-45},"uni1C13_1C25":{"x":-45},"uni1C13_1C25_1C24":{"x":-45},"uni1C14_1C24":{"x":-45},"uni1C12_1C24":{"x":-45},"uni1C03_1C24":{"x":-45},"uni1C03_1C25":{"x":-45},"uni1C03_1C25_1C24":{"x":-45},"uni1C08_1C24":{"x":-16},"uni1C00_1C24":{"x":-30},"uni1C00_1C25":{"x":-30},"uni1C00_1C25_1C24":{"x":-30},"uni1C02_1C24":{"x":-40},"uni1C02_1C25":{"x":-40},"uni1C01_1C24":{"x":-30},"uni1C1C_1C24":{"x":-45},"uni1C15_1C24":{"x":-10},"uni1C15_1C25":{"x":-10},"uni1C15_1C25_1C24":{"x":-10},"uni1C16_1C24":{"x":-20},"uni1C0F_1C24":{"x":-16},"uni1C21_1C24":{"x":-45},"uni1C0A_1C24":{"x":-35},"uni1C1F_1C24":{"x":-45}},null],"uni1C29":[{"uni1C0A":{"x":-20},"uni1C0C":{"x":25},"uni1C0E":{"x":25},"uni1C10":{"x":25},"uni1C1D":{"x":20},"uni1C1E":{"x":20},"uni1C0C_1C24":{"x":25},"uni1C1D_1C24":{"x":20},"uni1C1E_1C24":{"x":20},"uni1C0E_1C24":{"x":25},"uni1C0E_1C25":{"x":25},"uni1C0E_1C25_1C24":{"x":25},"uni1C0A_1C24":{"x":-20}},null],"marks":[null,{"anchor_0":{"uni1C37_uni1C2C":{"x":0,"y":0},"uni1C37":{"x":0,"y":0},"uni1C2C":{"x":0,"y":0}}}],"basemarks":[null,{"uni1C37_uni1C2C":{"anchor_0":{"x":0,"y":-182}},"uni1C37":{"anchor_0":{"x":0,"y":-182}}}]}},"8":{"0":{"type":["chained_sequence_context","pair"],"rules":[["[uni1C29 uni1C29.short uni1C29.wide] [uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24]'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_9 uni1C36' "],null],"uni1C27":[null,{"uni1C02":{"x":-20},"uni1C03":{"x":-20},"uni1C12":{"x":-20},"uni1C13":{"x":-20},"uni1C14":{"x":-20},"uni1C18":{"x":-20},"uni1C1C":{"x":-20},"uni1C1F":{"x":-20},"uni1C20":{"x":-20},"uni1C21":{"x":-20},"uni1C13_1C24":{"x":-20},"uni1C13_1C25":{"x":-20},"uni1C13_1C25_1C24":{"x":-20},"uni1C14_1C24":{"x":-20},"uni1C12_1C24":{"x":-20},"uni1C03_1C24":{"x":-20},"uni1C03_1C25":{"x":-20},"uni1C03_1C25_1C24":{"x":-20},"uni1C02_1C24":{"x":-20},"uni1C02_1C25":{"x":-20},"uni1C1C_1C24":{"x":-20},"uni1C21_1C24":{"x":-20},"uni1C1F_1C24":{"x":-20}}],"uni1C34":[null,{"uni1C05":{"x":-30},"uni1C1B":{"x":-25},"uni1C1E":{"x":-20},"uni1C1E_1C24":{"x":-20},"uni1C05_1C25":{"x":-30},"uni1C1B_1C24":{"x":-25}}],"uni1C28":[null,{"uni1C00":{"x":-30},"uni1C01":{"x":-30},"uni1C02":{"x":-40},"uni1C03":{"x":-45},"uni1C06":{"x":-40},"uni1C08":{"x":-16},"uni1C0A":{"x":-35},"uni1C0F":{"x":-16},"uni1C12":{"x":-45},"uni1C13":{"x":-45},"uni1C14":{"x":-45},"uni1C16":{"x":-20},"uni1C18":{"x":-45},"uni1C19":{"x":-30},"uni1C1C":{"x":-45},"uni1C1F":{"x":-45},"uni1C20":{"x":-45},"uni1C21":{"x":-45},"uni1C13_1C24":{"x":-45},"uni1C13_1C25":{"x":-45},"uni1C13_1C25_1C24":{"x":-45},"uni1C14_1C24":{"x":-45},"uni1C12_1C24":{"x":-45},"uni1C03_1C24":{"x":-45},"uni1C03_1C25":{"x":-45},"uni1C03_1C25_1C24":{"x":-45},"uni1C08_1C24":{"x":-16},"uni1C00_1C24":{"x":-30},"uni1C00_1C25":{"x":-30},"uni1C00_1C25_1C24":{"x":-30},"uni1C02_1C24":{"x":-40},"uni1C02_1C25":{"x":-40},"uni1C01_1C24":{"x":-30},"uni1C1C_1C24":{"x":-45},"uni1C15_1C24":{"x":-10},"uni1C15_1C25":{"x":-10},"uni1C15_1C25_1C24":{"x":-10},"uni1C16_1C24":{"x":-20},"uni1C0F_1C24":{"x":-16},"uni1C21_1C24":{"x":-45},"uni1C0A_1C24":{"x":-35},"uni1C1F_1C24":{"x":-45}}],"uni1C29":[null,{"uni1C0A":{"x":-20},"uni1C0C":{"x":25},"uni1C0E":{"x":25},"uni1C10":{"x":25},"uni1C1D":{"x":20},"uni1C1E":{"x":20},"uni1C0C_1C24":{"x":25},"uni1C1D_1C24":{"x":20},"uni1C1E_1C24":{"x":20},"uni1C0E_1C24":{"x":25},"uni1C0E_1C25":{"x":25},"uni1C0E_1C25_1C24":{"x":25},"uni1C0A_1C24":{"x":-20}}]},"1":[{"type":"chained_sequence_context","rules":["[uni1C29 uni1C29.short uni1C29.wide] [uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24]'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_9"]},null],"2":[{"type":"chained_sequence_context","rules":["[uni1C29 uni1C29.short uni1C29.wide] [uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24]'  uni1C36' lookup lookup_9"]},null]},"9":{"0":{"type":["single","chained_sequence_context"],"uni1C2D_1C36":[{"y_placement":193},null],"uni1C2F_1C36":[{"y_placement":193},null],"uni1C2E_1C36":[{"y_placement":193},null],"uni1C30_1C36":[{"y_placement":193},null],"uni1C31_1C36":[{"y_placement":193},null],"uni1C32_1C36":[{"y_placement":193},null],"uni1C33_1C36":[{"y_placement":193},null],"uni1C2D":[{"y_placement":193},null],"uni1C2E":[{"y_placement":193},null],"uni1C2F":[{"y_placement":193},null],"uni1C30":[{"y_placement":193},null],"uni1C31":[{"y_placement":193},null],"uni1C32":[{"y_placement":193},null],"uni1C33":[{"y_placement":193},null],"uni1C36":[{"y_placement":193},null],"rules":[null,["[uni1C29 uni1C29.short uni1C29.wide] [uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24]'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_10 uni1C36' "]]},"1":[null,{"type":"chained_sequence_context","rules":["[uni1C29 uni1C29.short uni1C29.wide] [uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24]'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_10"]}],"2":[null,{"type":"chained_sequence_context","rules":["[uni1C29 uni1C29.short uni1C29.wide] [uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24]'  uni1C36' lookup lookup_10"]}]},"10":[null,[{"type":"single","uni1C2D_1C36":{"y_placement":193},"uni1C2F_1C36":{"y_placement":193},"uni1C2E_1C36":{"y_placement":193},"uni1C30_1C36":{"y_placement":193},"uni1C31_1C36":{"y_placement":193},"uni1C32_1C36":{"y_placement":193},"uni1C33_1C36":{"y_placement":193},"uni1C2D":{"y_placement":193},"uni1C2E":{"y_placement":193},"uni1C2F":{"y_placement":193},"uni1C30":{"y_placement":193},"uni1C31":{"y_placement":193},"uni1C32":{"y_placement":193},"uni1C33":{"y_placement":193},"uni1C36":{"y_placement":193}}]]}},"GSUB":{"feature_list":{"abvs":{"0":[23,19]},"ccmp":{"2":[18,16],"3":[22,18]},"psts":{"0":[26,22],"1":[27,23],"2":[34,25],"3":[35,26]}},"lookup_list":{"13":{"0":{"rules":{"1":["uni1C37' lookup lookup_15 [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C2C",null],"2":["uni1C37' lookup lookup_16 [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C2C",null],"3":["uni1C37' lookup lookup_17 [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C2C",null]}},"1":[null,{"type":"chained_sequence_context","rules":["uni1C37' lookup lookup_15 [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C2C"]}],"2":[null,{"type":"chained_sequence_context","rules":["uni1C37' lookup lookup_15 [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C2C"]}],"3":[null,{"type":"chained_sequence_context","rules":["uni1C37' lookup lookup_15 [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C2C"]}]},"16":{"0":{"type":["single","chained_sequence_context"],"uni1C37":["uni1C37_uni1C2C",null],"rules":[null,["[uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C37_uni1C2C uni1C2C' lookup lookup_17"]]},"1":[null,{"type":"chained_sequence_context","rules":["[uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C37_uni1C2C uni1C2C' lookup lookup_17"]}],"2":[null,{"type":"chained_sequence_context","rules":["[uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C37_uni1C2C uni1C2C' lookup lookup_17"]}]},"17":{"0":{"type":["single","multiple"],"uni1C37":["uni1C37_uni1C2C",null],"uni1C2C":[null,[]]}},"18":{"0":{"type":["chained_sequence_context","ligature"],"rules":[["uni1C37_uni1C2C [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C2C' lookup lookup_19","uni1C37_uni1C2C [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C2C' lookup lookup_20","uni1C37_uni1C2C [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24] uni1C2C' lookup lookup_21"],null],"uni1C2D uni1C36":[null,"uni1C2D_1C36"],"uni1C2E uni1C36":[null,"uni1C2E_1C36"],"uni1C2F uni1C36":[null,"uni1C2F_1C36"],"uni1C30 uni1C36":[null,"uni1C30_1C36"],"uni1C31 uni1C36":[null,"uni1C31_1C36"],"uni1C32 uni1C36":[null,"uni1C32_1C36"],"uni1C33 uni1C36":[null,"uni1C33_1C36"],"uni1C36 uni1C2D":[null,"uni1C2D_1C36"],"uni1C36 uni1C2E":[null,"uni1C2E_1C36"],"uni1C36 uni1C2F":[null,"uni1C2F_1C36"],"uni1C36 uni1C30":[null,"uni1C30_1C36"],"uni1C36 uni1C31":[null,"uni1C31_1C36"],"uni1C36 uni1C32":[null,"uni1C32_1C36"],"uni1C36 uni1C33":[null,"uni1C33_1C36"]}},"19":{"0":{"type":["multiple","chained_sequence_context"],"uni1C2C":[[],null],"rules":[null,["uni1C29' lookup lookup_20 [uni1C03 uni1C04 uni1C12 uni1C14 uni1C18 uni1C1C uni1C20 uni1C22 uni1C14_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1C_1C24]"]]},"1":[null,{"type":"chained_sequence_context","rules":["uni1C29' lookup lookup_21 [uni1C01 uni1C05 uni1C1A uni1C1B uni1C4D uni1C4E uni1C01_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C1B_1C24]"]}]},"20":{"0":{"type":["multiple","single"],"uni1C2C":[[],null],"uni1C29":[null,"uni1C29.wide"]}},"21":{"0":{"type":["multiple","single"],"uni1C2C":[[],null],"uni1C29":[null,"uni1C29.short"]}},"22":{"0":{"type":["ligature","chained_sequence_context"],"uni1C2D uni1C36":["uni1C2D_1C36",null],"uni1C2E uni1C36":["uni1C2E_1C36",null],"uni1C2F uni1C36":["uni1C2F_1C36",null],"uni1C30 uni1C36":["uni1C30_1C36",null],"uni1C31 uni1C36":["uni1C31_1C36",null],"uni1C32 uni1C36":["uni1C32_1C36",null],"uni1C33 uni1C36":["uni1C33_1C36",null],"uni1C36 uni1C2D":["uni1C2D_1C36",null],"uni1C36 uni1C2E":["uni1C2E_1C36",null],"uni1C36 uni1C2F":["uni1C2F_1C36",null],"uni1C36 uni1C30":["uni1C30_1C36",null],"uni1C36 uni1C31":["uni1C31_1C36",null],"uni1C36 uni1C32":["uni1C32_1C36",null],"uni1C36 uni1C33":["uni1C33_1C36",null],"rules":[null,["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C26'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_2"]]},"1":[null,{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C25'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_1"]}],"2":[null,{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C2A'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_3"]}],"3":[null,{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C2B'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_4"]}],"4":[null,{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C24'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_0"]}],"5":[null,{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C25_1C24'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_5"]}]},"23":{"0":{"rules":{"0":["uni1C29' lookup lookup_24 [uni1C03 uni1C04 uni1C12 uni1C14 uni1C18 uni1C1C uni1C20 uni1C22 uni1C14_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1C_1C24]","uni1C24' lookup lookup_24 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],"1":[null,"uni1C25' lookup lookup_24 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],"2":[null,"uni1C25_1C24' lookup lookup_24 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],"3":[null,"uni1C26' lookup lookup_24 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],"4":[null,"uni1C2A' lookup lookup_24 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],"5":[null,"uni1C2B' lookup lookup_24 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"]}},"1":[{"type":"chained_sequence_context","rules":["uni1C29' lookup lookup_25 [uni1C01 uni1C05 uni1C1A uni1C1B uni1C4D uni1C4E uni1C01_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C1B_1C24]"]},null]},"24":{"0":{"type":["single","multiple"],"uni1C29":["uni1C29.wide",null],"uni1C25_1C24":[null,[]],"uni1C26":[null,[]],"uni1C25":[null,[]],"uni1C2A":[null,[]],"uni1C2B":[null,[]],"uni1C24":[null,[]]}},"25":{"0":{"type":["single","chained_sequence_context"],"uni1C29":["uni1C29.short",null],"rules":[null,["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C26'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_8"]]},"1":[null,{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C25'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_7"]}],"2":[null,{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C2A'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_9"]}],"3":[null,{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C2B'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_10"]}],"4":[null,{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C24'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_6"]}],"5":[null,{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C25_1C24'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_11"]}]},"26":{"0":{"rules":{"0":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C2B'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_4","uni1C24' lookup lookup_27 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],"1":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C2A'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_3","uni1C25' lookup lookup_27 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],"2":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C26'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_2","uni1C25_1C24' lookup lookup_27 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],"3":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C25_1C24'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_5","uni1C26' lookup lookup_27 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],"4":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C25'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_1","uni1C2A' lookup lookup_27 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],"5":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C24'  [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36]' lookup lookup_0","uni1C2B' lookup lookup_27 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"]}}},"27":{"0":{"type":["chained_sequence_context","multiple"],"rules":[["uni1C2B' lookup lookup_31 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]","uni1C2A' lookup lookup_30 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]","uni1C26' lookup lookup_28 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]","uni1C25_1C24' lookup lookup_33 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]","uni1C25' lookup lookup_29 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]","uni1C24' lookup lookup_32 [uni1C2D_1C36 uni1C2F_1C36 uni1C2E_1C36 uni1C30_1C36 uni1C31_1C36 uni1C32_1C36 uni1C33_1C36 uni1C2D uni1C2E uni1C2F uni1C30 uni1C31 uni1C32 uni1C33 uni1C36] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"],null],"uni1C25_1C24":[null,[]],"uni1C26":[null,[]],"uni1C25":[null,[]],"uni1C2A":[null,[]],"uni1C2B":[null,[]],"uni1C24":[null,[]]}},"28":[[{"type":"multiple","uni1C26":[]}],null],"29":[[{"type":"multiple","uni1C25":[]}],null],"30":[[{"type":"multiple","uni1C2A":[]}],null],"31":[[{"type":"multiple","uni1C2B":[]}],null],"32":[[{"type":"multiple","uni1C24":[]}],null],"33":[[{"type":"multiple","uni1C25_1C24":[]}],null],"34":[[{"type":"chained_sequence_context","rules":["[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C2B'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_10","[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C2A'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_9","[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C26'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_8","[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C25_1C24'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_11","[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C25'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_7","[uni1C00 uni1C01 uni1C02 uni1C03 uni1C04 uni1C05 uni1C06 uni1C07 uni1C08 uni1C09 uni1C0A uni1C0B uni1C0C uni1C0D uni1C0E uni1C0F uni1C10 uni1C11 uni1C12 uni1C13 uni1C14 uni1C15 uni1C16 uni1C17 uni1C18 uni1C19 uni1C1A uni1C1B uni1C1C uni1C1D uni1C1E uni1C1F uni1C20 uni1C21 uni1C22 uni1C23 uni1C4D uni1C4E uni1C4F uni1C25_1C24 uni1C23_1C24 uni1C13_1C24 uni1C13_1C25 uni1C13_1C25_1C24 uni1C14_1C24 uni1C0C_1C24 uni1C11_1C24 uni1C11_1C25 uni1C11_1C25_1C24 uni1C12_1C24 uni1C03_1C24 uni1C03_1C25 uni1C03_1C25_1C24 uni1C04_1C24 uni1C1D_1C24 uni1C1D_1C25 uni1C1D_1C25_1C24 uni1C1E_1C24 uni1C08_1C24 uni1C00_1C24 uni1C00_1C25 uni1C00_1C25_1C24 uni1C02_1C24 uni1C02_1C25 uni1C01_1C24 uni1C1C_1C24 uni1C15_1C24 uni1C15_1C25 uni1C15_1C25_1C24 uni1C16_1C24 uni1C05_1C24 uni1C05_1C25 uni1C05_1C25_1C24 uni1C0E_1C24 uni1C0E_1C25 uni1C0E_1C25_1C24 uni1C10_1C24 uni1C0F_1C24 uni1C1B_1C24 uni1C21_1C24 uni1C0A_1C24 uni1C0B_1C24 uni1C1F_1C24] uni1C24'  [uni1C37_uni1C2C uni1C37 uni1C2C]' lookup lookup_6"]}],null],"35":[[{"type":"chained_sequence_context","rules":["uni1C2B' lookup lookup_39 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]","uni1C2A' lookup lookup_38 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]","uni1C26' lookup lookup_36 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]","uni1C25_1C24' lookup lookup_41 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]","uni1C25' lookup lookup_37 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]","uni1C24' lookup lookup_40 [uni1C37_uni1C2C uni1C37 uni1C2C] [uni1C25_1C24 uni1C26 uni1C25 uni1C2A uni1C2B uni1C24]"]}],null],"36":[[{"type":"multiple","uni1C26":[]}],null],"37":[[{"type":"multiple","uni1C25":[]}],null],"38":[[{"type":"multiple","uni1C2A":[]}],null],"39":[[{"type":"multiple","uni1C2B":[]}],null],"40":[[{"type":"multiple","uni1C24":[]}],null],"41":[[{"type":"multiple","uni1C25_1C24":[]}],null]}},"head":{"checksum_adjustment":[3164265750,389364446],"modified":[3749451961,3813909082]},"hhea":{"caret_slope_rise":[1,1000]}},"cmap_diff":{},"locations":[{"location":"Default","words":{}}]};
+		function buildLocation_statichtml(loc) {
+  // Set font styles to appropriate axis locations
+  let rule = document.styleSheets[0].cssRules[2].style;
+  let cssSetting = "";
+  let textLocation = "Default";
+  if (loc.coords) {
+    cssSetting = Object.entries(loc.coords)
+      .map(function ([axis, value]) {
+        return `"${axis}" ${value}`;
+      })
+      .join(", ");
+    textLocation = Object.entries(loc.coords)
+      .map(function ([axis, value]) {
+        return `${axis}=${value}`;
+      })
+      .join(" ");
+    rule.setProperty("font-variation-settings", cssSetting);
+  }
+
+  $("#main").empty();
+
+  $("#title").html(`<h4 class="mt-2">${textLocation}</h2>`);
+
+  if (loc.glyphs) {
+    $("#main").append("<h4>Modified Glyphs</h4>");
+    let glyphs = $("<div>");
+    for (let glyph of loc.glyphs) {
+      addAGlyph(glyph, glyphs);
+    }
+    $("#main").append(glyphs);
+  }
+
+  if (loc.words) {
+    $("#main").append("<h4>Modified Words</h4>");
+    for (let [script, words] of Object.entries(loc.words)) {
+      let scriptTitle = $(`<h6>${script}</h6>`);
+      $("#main").append(scriptTitle);
+      let worddiv = $("<div>");
+      for (let word of words) {
+        addAWord(word, worddiv);
+      }
+      $("#main").append(worddiv);
+    }
+  }
+  $('[data-toggle="tooltip"]').tooltip();
+}
+
+$(function () {
+  if (report["tables"]) {
+    diffTables(report);
+  }
+  if (report["kerns"]) {
+    diffKerns(report);
+  }
+  cmapDiff(report);
+  $('[data-toggle="tooltip"]').tooltip();
+  if (!report["locations"]) {
+    $("#title").html("<h4 class='mt-2'>No differences found</h4>");
+    $("#ui-nav").hide();
+    return;
+  }
+
+  for (var [index, loc] of report["locations"].entries()) {
+    var loc_nav = $(`<li class="nav-item">
+		<a class="nav-link text-secondary" href="#" data-index="${index}">${loc.location.replaceAll(
+      ",",
+      ",\u200b"
+    )}</a>
+	</li>`);
+    $("#locationnav").append(loc_nav);
+  }
+  $("#locationnav li a").on("click", function (e) {
+    $("#locationnav li a").removeClass("active");
+    $(this).addClass("active");
+    buildLocation_statichtml(report.locations[$(this).data("index")]);
+  });
+  $("#locationnav li a").eq(0).click();
+
+  document.styleSheets[0].cssRules[0].style.setProperty(
+    "src",
+    "url(old-NotoSansLepcha-Regular.ttf)"
+  );
+  document.styleSheets[0].cssRules[1].style.setProperty(
+    "src",
+    "url(new-NotoSansLepcha-Regular.ttf)"
+  );
+  setupAnimation();
+});
+
+	</script>
+</body>
+
+</html>
